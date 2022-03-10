@@ -15,5 +15,6 @@ router.get('/profile', onlyLoguedUsers, controller.profile);
 
 router.post('/register', uploadFile.single('avatarimage'),registerValidator, controller.processRegister)
 router.post('/login', loginValidator ,controller.login)
+router.get('/logout', controller.logout)
 /*router.post('/creacionPeliculas', uploadFile.single('imageCreate'),registerValidator, controller.processCreate)*/
 module.exports = router
