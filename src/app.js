@@ -9,10 +9,6 @@ let cookieSession = require('./middlewares/cookieSession');
 let homeRouter = require('./routes/home');
 let adminrouter = require('./routes/admin');
 
-
-
-
-
 let userRouter = require('./routes/user');
 let faqRouter = require('./routes/faq');
 const { link } = require('fs');

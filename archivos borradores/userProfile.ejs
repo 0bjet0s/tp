@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include ('partials/head', {titulo}) %>
+<body>
+    <%- include('partials/header1')%>
+    <main class="user-profile">
+    <div class="profile-container">
+        <div class="profile-title">
+            <h2>Perfil del usuario</h2>
+        </div>
+        <div class="container-img-name">
+            <div class="user-avatar">
+                <img src="design/images/avatars/<%= session.user.avatar %>" alt="Avatar image">
+            </div>
+            <div class="user-name">
+                <h3>Tu perfil, <%= session.user.name %> <%= session.user.lastName %></h3>
+            </div>
+        </div>
+        <div class="container-user-data">
+            <div class="user-email">
+                <p><%= session.user.email %></p>
+            </div>
+            <div class="user-pass">
+                <p>********</p>
+            </div>
+            <div class="user-edit-form forms-container">
+                <form action="/users/userProfile" id="form" method="post">
+
+                    <div class="form-input-container">
+                        <div class="form-input">
+                            <input type="text" name="name" id="name" placeholder="Nombre" value="<%= user.name %>">
+                            <small class="text-danger" id="nameErrors"></small>
+                            <% if (locals.errors && errors.name) { %>
+                                <small><%- errors.name.msg %></small>
+                            <% } %>
+                        </div>
+                    </div>
+                    <div class="form-input-container">
+                        <div class="form-input">
+                            <input type="text" name="lastName" id="lastname" placeholder="Apellido" value="<%= user.last_name %>">
+                            <small class="text-danger" id="lastnameErrors"></small>
+                            <% if (locals.errors && errors.lastname) { %>
+                                <small><%- errors.lastname.msg %></small>
+                            <% } %>
+                        </div>
+                    </div>
+                    <div class="form-input-container">
+                        <div class="form-input">
+                            <input type="text" name="email" id="email" placeholder="E-mail" value="<%= user.email %>">
+                            <small class="text-danger" id="nameErrors"></small>
+                            <% if (locals.errors && errors.email) { %>
+                                <small><%- errors.email.msg %></small>
+                            <% } %>
+                        </div>
+                    </div>
+                    <div class="form-input-container">
+                        <div class="form-input">
+                            <input type="password" name="pass1" id="pass1" placeholder="Contraseña" value="<%= user.pass1 %>">
+                            <small class="text-danger" id="pass1Errors"></small>
+                            <% if (locals.errors && errors.pass1) { %>
+                                <small><%- errors.pass1.msg %></small>
+                            <% } %>
+                        </div>
+                    </div>
+                    <div class="form-input-container">
+                        <div class="form-input">
+                            <input type="password" name="pass2" id="pass2" placeholder="Repetir Contraseña" value="<%= user.pass2 %>">
+                            <small class="text-danger" id="pass1Errors"></small>
+                            <% if (locals.errors && errors.pass2) { %>
+                                <small><%- errors.pass2.msg %></small>
+                            <% } %>
+                        </div>
+                    </div>
+                    <div class="user-edit">
+                        <input type="submit" value="Editar perfil">
+                        <small class="text-danger" id="submitErrors"></small>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>
+</main>
+
+    <%- include('../partials/footer')  %>
+    <script src="../js/profile.js"></script>
+</body>
+</html>
