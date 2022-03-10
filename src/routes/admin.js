@@ -15,7 +15,7 @@ let controller = require('../controllers/peliculasController')
 
 /* rutas */
 // inicio de pagina de admin 
-router.get('/', onlyLoguedUsers, userAdminCheck, controller.inicio)
+router.get('/', userAdminCheck, controller.inicio)
 
 // get - lista de productos
 /*Router.get('/products', controller.productos)*/
