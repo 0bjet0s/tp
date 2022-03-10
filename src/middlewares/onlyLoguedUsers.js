@@ -5,6 +5,6 @@ module.exports = (req, res, next) => {
         next();
     }
 
-    return next(createError(401));
-    // res.redirect('/user/login')
+    // return next(createError(401));
+    res.redirect('/user/login')
 }
