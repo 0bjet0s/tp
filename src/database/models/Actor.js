@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
         as : 'actors',
         otherKey : 'movieId',
         foreignKey : 'actorId',
-        through : 'Actor_has_Movies'
+        through : 'actor_has_Movies'
       })
     }
   };

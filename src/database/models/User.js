@@ -21,7 +21,7 @@ module.exports = (sequelize, DataTypes) => {
         as : 'movies',
         otherKey : 'movieId',
         foreignKey : 'userId',
-        through : 'Favorites'
+        through : 'favorites'
       })
     }
   };
