@@ -22,7 +22,6 @@ module.exports = [
         .then(user => {
             if(user) return Promise.reject("Email ya registrado");
         })
-        .catch(error =>  Promise.reject("Email ya registrado"))
     }),//.withMessage('Email registrado'),
 
     check('pass1')
