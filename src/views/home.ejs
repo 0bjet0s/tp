@@ -24,10 +24,10 @@
                             <article class="article flex">
                                 <div class="img-container flex">
                                     <button class="btn-play" id="<%= pelicula.id %> ">
-                                        <img src="./design/images/icons/play-circle-regular.png" alt=""
+                                        <img src="/design/images/icons/play-circle-regular.png" alt=""
                                             onclick="alert('mirate este trailer de <%= pelicula.title %>')">
                                     </button>
-                                    <img src="./design/images/products/<%= pelicula.image %>" alt="articulo">
+                                    <img src="/design/images/products/<%= pelicula.image %>" alt="articulo">
                                 </div>
                                 <div class="data-article flex">
                                     <a href="/products/detail/<%= pelicula.id %>">
@@ -54,9 +54,9 @@
                                 </div>
                                 <ul class="list">
                                     <% generos.forEach(genero=> { %>
-                                        <li><button id="<%= genero.id %>">
-                                              <a href="#"></a> <%= genero.name %></a>
-                                            </button></li>
+                                        <li>
+                                              <a href="/peliculas/genero/<%= genero.id %>"><%= genero.name %></a>
+                                        </li>
                                         <% }) %>
                                 </ul>
                             </div>
@@ -85,7 +85,7 @@
                     <article class="article flex">
                         <div class="img-container flex">
                             <button class="btn-play">
-                                <img src="./design/images/icons/play-circle-regular.png" alt=""
+                                <img src="/design/images/icons/play-circle-regular.png" alt=""
                                     onclick="alert('mirate este trailer de')">
                             </button>
                             <img id="template-img" alt="articulo">
@@ -103,68 +103,7 @@
                         </div>
                     </article>
                 </template>
-                <!-- funcion que filtra
-                            por las peliculas segun el genero indicado y  utiliza la funcion fetch para hacer peticiones http asincronas
-                        les dejo un link para que lo vean-->
-                <!-- https://developer.mozilla.org/es/docs/Web/API/Fetch_API/Using_Fetch -->
-                <script>
-                    function filterMovies(event) {
-                        const $containerMovies = document.querySelector('section.container-articles');
-                        let id = event.target.getAttribute('id');
-
-                        $containerMovies.classList.add('loading')
-                        // primero hacer esto
-                        /* realiza la peticion aplicando tres parametros. El primero es la ruta que se va a solicitar(tiene que existir en el routes) */
-                        fetch(`/peliculas/genero/${id}`, {
-                            /* el segundo parametro es el tipo de peticion que se va a realizar(todavia no lo probe con put y delete) */
-                            method: 'GET',
-                            /* y el tercero entendi maso que son como configuraciones a la peticion. En este caso dice 
-                            que el tipo de respuesta es un json (no entiendo xq application pero asi estaba ) */
-                            headers: {
-                                'Content-type': 'application/json'
-                            }
-                        })//esta solicitud que se hace va a dar una respuesta. A esta respuesta se la trata dentro de el metodo then(entonces)
-                            /* creo que se peuden poner todos los then que uno quiera */
-                            .then(res => res.json())//la respuesta que viene de la solicitud se parsea a json
-                            .then(data => {//la respuesta ya parseada es ahora una lista de array con contenido iterable
-                                /* variables */
-                                const $template = document.querySelector('#model-card').content,
-                                    $fragment = document.createDocumentFragment();
- 
-                                data.forEach(register => {
-                                    $template.querySelector('#template-img').setAttribute('src',
-                                        `./design/images/products/${register.image}`);
-                                    $template.querySelector('.data-article a').setAttribute(
-                                        'href', `/products/detail/${register.id}`);
-                                    $template.querySelector('.data-article a .noun')
-                                        .textContent = register.name;
-                                    $template.querySelector('.data-article a .precio')
-                                        .textContent = `$ ${register.price}`
-                                    let $clon = document.importNode($template, true);
-                                    $fragment.appendChild($clon)
-                                });
-                                $containerMovies.innerHTML = "";
-                                $containerMovies.appendChild($fragment);
-                                $containerMovies.classList.remove('loading')
-                            })
-                            //si hay error lo atrapo
-                            .catch(err => {
-                                console.log(err)
-                            })
-
-                        let $navBar = document.querySelector('main .container-nav');
-                        if ($navBar.classList.contains('active')) {
-                            $navBar.classList.remove('active');
-                        }
-
-                    }
-
-                    let $allCategories = document.querySelectorAll('.container-nav .list li');
-                    $allCategories.forEach(a => {
-                        a.addEventListener('click', filterMovies)
-                    })
-                </script>
-
+                
                 <!-- funcion que maneja el menu desplegable del navBar -->
                 <script>
                     let $btnMenu = document.querySelector('header .sub-menu'),

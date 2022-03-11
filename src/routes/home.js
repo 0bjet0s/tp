@@ -4,7 +4,7 @@ let controller = require('../controllers/homeController')
 /* Get - pagina de inicio */
 router.get('/', controller.inicio);
 
-router.get('/peliculas/genero/:id', controller.FilterByGender);
+router.get('/peliculas/genero/:id', controller.filterByGenre);
 
 
-module.exports = router
+module.exports = router 
