@@ -116,9 +116,29 @@ module.exports = {
 
     "profile": async (req, res) => {
         return res.render('userProfile', {
-            title: "perfil de ususario",
+            title: "Perfil de ususario",
             session: req.session.user,
         })
+    },
+
+    "editar": (req, res) => {
+        db.User.findByPk({
+            where: {id: req.session.user.id,
+                 name: req.session.user.name,
+                 lastname: req.session.user.name,
+                 email: req.session.user.email,
+                 avatar: req.file ? req.file.filename : "AvatarChichiro.png",
+
+                }
+        })
+        .then((user) => {
+            res.render('users/editProfile', {
+                user,
+                session: req.session    
+            });
+        })
+        .catch((error) => {console.log(error)}); 
+
     },
 
     "carrito": (req, res) => {
