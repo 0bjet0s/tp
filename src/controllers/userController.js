@@ -132,7 +132,7 @@ module.exports = {
                 }
         })
         .then((user) => {
-            res.render('users/editProfile', {
+            res.render('users/profile', {
                 user,
                 session: req.session    
             });
