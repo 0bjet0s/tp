@@ -13,8 +13,8 @@
          <div class="user-avatar">
             <img src="design/images/avatars/<%= session.user.avatar %>" alt="Avatar image">
          </div>
-         
-         <div class="form-input-container">
+         <form class="form-input-container" action="/user/profile/<%= session.user.id %>/edit?_method=PUT" method="POST" id="form">
+         <div class="">
           <div class="form-input">
             <input type="text" name="name" id="name" placeholder="Nombre" value="<%= user.name %>" readonly>
               <% if (locals.errors && errors.name) { %>
@@ -75,6 +75,7 @@
     <input type="submit" value="Editar" onclick="document.getElementById('#pass1').removeAttribute(readonly)">
    </div>
   </div>
+</form>
  
 </main>
 <%- include('../partials/footer1') %>

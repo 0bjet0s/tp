@@ -114,28 +114,34 @@ module.exports = {
         res.redirect('/')
     },
 
-    "profile": async (req, res) => {
-        return res.render('userProfile', {
-            title: "Perfil de ususario",
-            session: req.session.user,
+    "profile": async (req, res) => { 
+
+        Users.findByPk(req.session.user.id,  {
+            include: [{association: 'rol'}]
+        }) 
+        .then((user) => {
+            res.render('user/profile', {
+                user,
+                session: req.session
+            })
         })
     },
 
-    "editar": (req, res) => {
-        db.User.findByPk({
-            where: {id: req.session.user.id,
-                 name: req.session.user.name,
-                 lastname: req.session.user.name,
-                 email: req.session.user.email,
-                 avatar: req.file ? req.file.filename : "AvatarChichiro.png",
+    "editar":  async (req, res) => {  
 
-                }
+        Users.update({
+            name: req.body.name,
+            lastname: req.body.name,
+            email: req.body.email,
+            password:req.body.pass,
+         
+        },{
+            where: {
+                id: req.session.user.id
+            }
         })
-        .then((user) => {
-            res.render('users/profile', {
-                user,
-                session: req.session    
-            });
+        .then(() => {
+            res.redirect('/')
         })
         .catch((error) => {console.log(error)}); 
 
