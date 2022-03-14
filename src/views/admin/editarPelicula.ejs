@@ -8,11 +8,11 @@
                     <div class="row">
                         <div class="col-12 col-md-6 mb-3">
                             <label for="">TITTLE</label>
-                            <input class="form-control" type="text" name="title" value="<%=movie.title%>">
+                            <input class="form-control" type="text" name="title" id="title" value="<%=movie.title%>">
                         </div>
                         <div class="col-12 col-md-6 mb-3">
                             <label for="">DIRECTOR</label>
-                            <select class="form-select" name="directorId">
+                            <select class="form-select" name="director" id="director">
                                 <% directors.forEach(director=> { %>
                                     <option <%=director.id==movie.directorId ? 'selected' : null %> value="<%=
                                             director.id %>"><%= director.name %>
@@ -23,29 +23,29 @@
                         </div>
                         <div class="col-12 col-md-6  mb-3">
                             <label for="">DURATION</label>
-                            <input class="form-control" type="number" name="length" value="<%= movie.length %>">
+                            <input class="form-control" type="number" name="length" value="<%= movie.length %>" id="duration">
                         </div>
                         <div class="col-12 col-md-6  mb-3">
                             <label for="">YEAR</label>
-                            <input class="form-control" type="number" name="year">
+                            <input class="form-control" type="number" name="year" id="year">
                         </div>
                         <div class="col-12 col-md-6  mb-3">
                             <label for="">TRAILER</label>
-                            <input class="form-control" type="text" name="trailer" value="<%=movie.trailer%>">
+                            <input class="form-control" type="text" name="trailer" value="<%=movie.trailer%>" id="trailer">
                         </div>
                         <div class="col-12 col-md-6  mb-3">
-                            <label for="">PRECIO</label>
-                            <input class="form-control" type="number" name="price" value="<%= movie.price %>">
+                            <label for="">PRICE</label>
+                            <input class="form-control" type="number" name="price" value="<%= movie.price %>" id="price">
                         </div>
                         <div class="row">
                             <div class="col-12 col-md-6">
                                 <div class="col-12 col-md-6  mb-3">
                                     <label for="">IMAGE</label>
-                                    <input class="form-control" type="file" name="image">
+                                    <input class="form-control" type="file" name="image" id="image">
                                 </div>
                                 <div class="col-12  mb-3">
                                     <label for="">SINOPSIS</label>
-                                    <textarea class="form-control" name="sinopsis" id="" cols="30" rows="5"
+                                    <textarea class="form-control" name="sinopsis" id="sinopsis" cols="30" rows="5"
                                         style="resize: none;"><%=movie.sinopsis%></textarea>
                                 </div>
                             </div>
