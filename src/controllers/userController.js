@@ -114,9 +114,11 @@ module.exports = {
         res.redirect('/')
     },
 
-    "profile": async (req, res) => {
+    "profile":  (req, res) => {
+        console.log('RENDERIZANDO PERFIL DE USUARIO--------------------------')
+        // return res.send(req.session.user)
         return res.render('userProfile', {
-            title: "perfil de ususario",
+            titulo: "TRIMOVI",
             session: req.session.user,
         })
     },
