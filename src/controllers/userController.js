@@ -116,6 +116,7 @@ module.exports = {
 
     "profile": async (req, res) => { 
 
+         
         Users.findByPk(req.session.user.id,  {
             include: [{association: 'rol'}]
         }) 
@@ -127,8 +128,9 @@ module.exports = {
         })
     },
 
-    "editar":  async (req, res) => {  
-
+    "edit":  async (req, res) => {  
+        let errors = validationResult(req);
+       if(errors.isEmpty()) {
         Users.update({
             name: req.body.name,
             lastname: req.body.name,
@@ -141,9 +143,11 @@ module.exports = {
             }
         })
         .then(() => {
-            res.redirect('/')
+            res.redirect('user/profile')
         })
-        .catch((error) => {console.log(error)}); 
+        .catch((error) => {console.log(error)});
+        
+    } 
 
     },
 
