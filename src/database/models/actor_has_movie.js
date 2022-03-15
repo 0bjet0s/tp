@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
     actorId: DataTypes.INTEGER
   }, {
     sequelize,
-    modelName: 'Actor_has_Movie',
+    modelName: 'actor_has_movie',
     tableName: 'actor_has_movies'
   });
   return Actor_has_Movie;
