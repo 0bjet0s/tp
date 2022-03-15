@@ -116,21 +116,44 @@ module.exports = {
 
     "profile": async (req, res) => { 
 
-         
+       
+        try{
+
+       let errors = validationResult(req);
+        if(errors.isEmpty()) {
+            let {name, lastname, rol,email, avatar, date, phone, pass1} = req.body;
+        
+            let user = await {
+                name,
+                lastname,
+                email,
+                password: "********",
+                avatar: req.file ? req.file.filename : "AvatarChichiro.png",
+                // date
+                // phone
+                rolId: rol 
+            }
+        } 
+
+
         Users.findByPk(req.session.user.id,  {
             include: [{association: 'rol'}]
         }) 
         .then((user) => {
-            res.render('user/profile', {
+            res.render('user/profile/:id', {
                 user,
                 session: req.session
             })
         })
+    }
+        catch (error) {
+            console.log(error);
+        }
+
     },
 
-    "edit":  async (req, res) => {  
-        let errors = validationResult(req);
-       if(errors.isEmpty()) {
+    "editar":  async (req, res) => {  
+
         Users.update({
             name: req.body.name,
             lastname: req.body.name,
@@ -143,11 +166,9 @@ module.exports = {
             }
         })
         .then(() => {
-            res.redirect('user/profile')
+            res.redirect('/')
         })
-        .catch((error) => {console.log(error)});
-        
-    } 
+        .catch((error) => {console.log(error)}); 
 
     },
 
