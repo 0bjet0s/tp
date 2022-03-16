@@ -1,88 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include ('partials/head', {titulo}) %>
-<body>
-    <%- include('partials/header1')%>
-    <main class="user-profile">
-    <div class="profile-container">
-        <div class="profile-title">
-            <h2>Perfil del usuario</h2>
-        </div>
-        <div class="container-img-name">
-            <div class="user-avatar">
-                <img src="/design/images/avatars/<%= session.avatar %>" alt="Avatar image">
-            </div>
-            <div class="user-name">
-                <h3>Tu perfil, <%= session.name %> <%= session.lastName %></h3>
-            </div>
-        </div>
-        <div class="container-user-data">
-            <div class="user-email">
-                <p><%= session.email %></p>
-            </div>
-            <div class="user-pass">
-                <p>********</p>
-            </div>
-            <div class="user-edit-form forms-container">
-                <form action="/users/userProfile" id="form" method="post">
+<%- include ('partials/head', {titulo}) %>
 
-                    <div class="form-input-container">
-                        <div class="form-input">
-                            <input type="text" name="name" id="name" placeholder="Nombre" value="<%= session.name %>">
-                            <small class="text-danger" id="nameErrors"></small>
-                            <% if (locals.errors && errors.name) { %>
-                                <small><%- errors.name.msg %></small>
-                            <% } %>
+    <body>
+        <%- include('partials/header1')%>
+            <main class="register-form">
+                <div class="form-container">
+                    <h1>Perfil de usuario</h1>
+                    <hr>
+                    <div class="row">
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <div style="width: 200px;" class="mx-auto">
+                                <img src="/design/images/avatars/<%= session.avatar %>" alt="Avatar image">
+                            </div>
+                            <label for="changeImagen" class="btn btn-submit mt-3 pt-2 h3" style="margin-right: 10px;">Cambiar imagen</label>
+                            <input type="file" hidden id="changeImagen">
                         </div>
-                    </div>
-                    <div class="form-input-container">
-                        <div class="form-input">
-                            <input type="text" name="lastName" id="lastname" placeholder="Apellido" value="<%= session.lastname %>">
-                            <small class="text-danger" id="lastnameErrors"></small>
-                            <% if (locals.errors && errors.lastname) { %>
-                                <small><%- errors.lastname.msg %></small>
-                            <% } %>
-                        </div>
-                    </div>
-                    <div class="form-input-container">
-                        <div class="form-input">
-                            <input type="text" name="email" id="email" placeholder="E-mail" value="<%= session.pass %>">
-                            <small class="text-danger" id="nameErrors"></small>
-                            <% if (locals.errors && errors.email) { %>
-                                <small><%- errors.email.msg %></small>
-                            <% } %>
-                        </div>
-                    </div>
-                    <div class="form-input-container">
-                        <div class="form-input">
-                            <input type="password" name="pass1" id="pass1" placeholder="Contraseña" value="<%= %>">
-                            <small class="text-danger" id="pass1Errors"></small>
-                            <% if (locals.errors && errors.pass1) { %>
-                                <small><%- errors.pass1.msg %></small>
-                            <% } %>
-                        </div>
-                    </div>
-                    <div class="form-input-container">
-                        <div class="form-input">
-                            <input type="password" name="pass2" id="pass2" placeholder="Repetir Contraseña" value="<%= %>">
-                            <small class="text-danger" id="pass1Errors"></small>
-                            <% if (locals.errors && errors.pass2) { %>
-                                <small><%- errors.pass2.msg %></small>
-                            <% } %>
-                        </div>
-                    </div>
-                    <div class="user-edit">
-                        <input type="submit" value="Editar perfil">
-                        <small class="text-danger" id="submitErrors"></small>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    </div>
-</main>
+                        <div class="col-12 col-md-6 col-lg-8">
+                            <form action="/user/update/<%= user.id %>?_method=PUT" method="POST" class="form-ad">
 
-    <%- include('partials/footer1')  %>
-    <script src="../js/profile.js"></script>
-</body>
+                                <div class="mb-3">
+                                    <input class="input-style" type="name" name="name" placeholder="Ingrese su Nombre"
+                                        value="<%= user.name %>">
+                                    <% if (typeof errors !="undefined" && errors.name) { %>
+                                        <span class="text-danger">
+                                            <%= errors.name.msg %>
+                                        </span>
+                                        <% } %>
+                                </div>
+
+                                <div class="mb-3">
+                                    <input class="input-style" type="surname" name="lastname"
+                                        placeholder="Ingrese su Apellido" value="<%= user.lastname %>">
+                                    <% if (typeof errors !="undefined" && errors.lastname) { %>
+                                        <span class="text-danger">
+                                            <%= errors.lastname.msg %>
+                                        </span>
+                                        <% } %>
+                                </div>
+
+                                <div class="mb-3">
+                                    <input class="input-style" type="email" name="email" value="<%= user.email %>" readonly>
+                                    <% if (typeof errors !="undefined" && errors.email) { %>
+                                        <span class="text-danger">
+                                            <%= errors.email.msg %>
+                                        </span>
+                                        <% } %>
+                                </div>
+
+                                <div class="mb-3">
+                                    <input class="input-style" type="text" name="phone" placeholder="Teléfono"
+                                        value="<%= user.phone %>">
+                                    <% if (typeof errors !="undefined" && errors.phone) { %>
+                                        <span class="text-danger">
+                                            <%= errors.phone.msg %>
+                                        </span>
+                                        <% } %>
+                                </div>
+                                <div class="mb-3">
+                                    <input class="input-style" type="date" name="date" value="<%= user.date %>">
+                                    <% if (typeof errors !="undefined" && errors.date) { %>
+                                        <span class="text-danger">
+                                            <%= errors.date.msg %>
+                                        </span>
+                                        <% } %>
+                                </div>
+
+                                <button type="submit" class="btn btn-submit" style="margin-right: 10px;">Guardar
+                                    cambios</button>
+
+
+                        </div>
+
+                        </form>
+                    </div>
+                </div>
+
+
+                </div>
+            </main>
+            <%- include('partials/footer1') %>
+
+    </body>
+
 </html>

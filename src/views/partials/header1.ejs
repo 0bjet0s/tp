@@ -1,57 +1,39 @@
-<header class="flex posicioned">
+<header class="d-flex flex-column flex-md-row justify-content-between py-3 py-lg-0 px-md-3">
 
-    <!-- seccion izquierda -->
-    <div class="left-container flex">
-        <!-- menu hamburguesa -->
-        <div class="container-icon flex ">
-            <button class="flex sub-menu" id="">
-                <i class="fas fa-bars fa-size"></i>
-            </button>
-        </div>
-        <!-- buscador -->
-        <div class="container-icon search-box flex">
-            <button class="btn-search"><i class="fas fa-search"></i></button>
-            <form action="">
-                <input type="text" class="input-search" placeholder="Buscar...">
-                <button type="submit"><i class="fas fa-search"></i></button>
-            </form>
 
-        </div>
+
+    <!-- buscador -->
+    <div class="d-flex">
+        <form action="">
+            <input type="text" class="input-search" placeholder="Buscar...">
+            <button type="submit" class="btn-search"><i class="fas fa-search"></i></button>
+        </form>
+
     </div>
 
     <!-- logo trimovi -->
-    <div class="container-logo"><a href="/"><img src="/design/images/icons/logo.png" alt="TRIMOVI"></a></div>
+    <div class="container-logo" style="width: 150px;"><a href="/"><img src="/design/images/icons/logo.png" alt="TRIMOVI"></a></div>
 
-    <!-- contenedor derecho -->
-    <div class="right-container flex">
-        <!-- carrito -->
-        <div class="container-icon flex" id="car">
-            <a href="/user/carrito"><i class="fas fa-shopping-cart"></i></a>
-        </div>
+  
 
         <!-- icono de ususario/login -->
         <% if (!session) { %>
-        <div class="buttons">
-            <div class="buttons">
-                <button class="raise"><a class="raiss" href="/user/login">iniciar sesion</a></button>
+            <div class="">
+                <button class="raise mx-2"><a class="raiss" href="/user/login">Iniciar sesión</a></button>
+                <button class="raise mx-2"><a class="raiss" href="/user/register">Registrate</a></button>
+
             </div>
-        </div>
-        <% } else { %>
-        <div class="container-icon flex" id="car" style="flex-direction: column; color: white;">
-            <a href="/user/profile"><i class="fas fa-user"></i></a>
-            <span><%= session.name %></span>
-            <div class="buttons">
-                <div class="buttons">
-                    <button class="raise"><a class="raiss" href="/user/logout">cerrar sesion</a></button>
+            <% } else { %>
+                <div class="d-flex flex-column text-white">
+                    <p>
+                        <%= session.name %>
+                    </p>
+                    <div>
+                        <a class="text-white h4 mx-2" href="/user/carrito"><i class="fas fa-shopping-cart"></i></a>
+                        <a class="text-white h4 mx-2" href="/user/profile"><i class="fas fa-user"></i></a>
+                        <a class="text-white h4 mx-2" href="/user/logout"><i class="fas fa-sign-out-alt"></i></a>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <% } %>
-    </div>  
+                <% } %>
 
-    <!-- js -->
-    <script defer src="js/searchBox.js"></script>
 </header>
-
-<!-- https://drive.google.com/drive/folders/1afW9XuiiMC1_SoIGm2VPs34Vv9HHaTvq
- -->

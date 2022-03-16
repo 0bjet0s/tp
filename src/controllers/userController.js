@@ -17,21 +17,13 @@ module.exports = {
 
                 let { email, remember } = req.body;
                 const user = await db.User.findOne({
-                    attributes: [
-                        'name',
-                        'lastname',
-                        'email',
-                        'avatar',
-                        'avatar',
-                        'rolId',
-                    ],
                     where: {
                         email
                     }
                 });
                 // console.log(user)
                 req.session.user = {
-                    // id: user.id,
+                    id: user.id,
                     name: user.name,
                     lastname: user.lastname,
                     email: user.email,
@@ -115,12 +107,39 @@ module.exports = {
     },
 
     "profile":  (req, res) => {
-        console.log('RENDERIZANDO PERFIL DE USUARIO--------------------------')
-        // return res.send(req.session.user)
-        return res.render('userProfile', {
-            titulo: "TRIMOVI",
-            session: req.session.user,
+       
+        db.User.findByPk(req.session.user.id, {
+            include : [{all:true}]
+        }).then(user => {
+            return res.render('userProfile', {
+                titulo: "TRIMOVI",
+                session: req.session.user,
+                user
+            })
         })
+    },
+
+    update : (req,res) => {
+        
+        let {name, lastname, date, phone} = req.body;
+        console.log(req.body.date);
+        let {id} = req.params;
+
+        db.User.update(
+            {
+                name,
+                lastname,
+                date,
+                phone,
+            },
+            {
+                where : {
+                    id
+                }
+            }
+        ).then( () => {
+            return res.redirect('/user/profile')
+        }).catch(error => console.log(error))
     },
 
     "carrito": (req, res) => {

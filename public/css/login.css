@@ -55,11 +55,9 @@ main .login-container {
   }
   .login {
   
-    display: flex;
     flex-direction: column;
     align-items: center;
-    width: 90%;
-    height: 100%;
+    width: 300px;
   }
   .login-form {
     background-color: rgba(116, 108, 108, 0.9);
@@ -83,7 +81,6 @@ main .login-container {
     width: 100%;
     border-radius: 50%;
     border: solid #fff 5px;
-    transform: translate(0px, -110px);
   }
   .fondo form {
     padding: 10px 0;
@@ -152,6 +149,12 @@ h3#login-txt {
   margin: 1px;
 } 
 @media screen and (min-width: 768px) {
+  .login {
+  
+    flex-direction: column;
+    align-items: center;
+    width: 400px;
+  }
     .fondo {
         width: 80%;
     }
