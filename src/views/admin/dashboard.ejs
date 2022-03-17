@@ -42,48 +42,68 @@
                     >Agregar</a
                   >
                 </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="/"
+                    >Volver al home</a
+                  >
+                </li>
               </ul>
             </li>
           </ul>
         </div>
       </div>
     </nav>
-    <main>
-      <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Nombre</th>
-            <th scope="col">Genero</th>
-            <th scope="col">Precio</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% peliculas.forEach(peli => { %>
-          <tr class="table-active">
-            <th scope="row"><%= peli.id %> </th>
-            <td><%= peli.title %> </td>
-            <td>
-              <ul>
-                <% peli.genres.forEach(genre => { %>
-                  <li><%= genre.name %></li>
-                  <% }) %>
-              </ul>
-            
-            </td>
-            <td>$ <%= peli.price %> </td>
-            <td>
-              <a href="/admin/products/edit/<%= peli.id %>"><button type="button" class="btn btn-success"><i
-                    class="fas fa-pencil-alt"></i></button></a>
-              <form action="/admin/products/<%= peli.id %>/dlt?_method=DELETE" method="post"> <button type="submit"
-                  class="btn btn-danger"><i class="fas fa-trash"></i></button></a>
-              </form>
-            </td>
-          </tr>
-          <% }) %>
-  
-        </tbody>
-      </table>
+    <main >
+      <div class="row">
+        <div class="col-12 col-md-10 mx-auto">
+          <div class="table-responsive m-4">
+            <table class="table" style="font-size: 20px;">
+              <thead>
+                <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Genero</th>
+                  <th scope="col">Precio</th>
+                  <th scope="col">Acciones</th>
+
+                </tr>
+              </thead>
+              <tbody>
+                <% peliculas.forEach(peli => { %>
+                <tr class="table-active">
+                  <th scope="row"><%= peli.id %> </th>
+                  <td><%= peli.title %> </td>
+                  <td>
+                    <ul>
+                      <% peli.genres.forEach(genre => { %>
+                        <li><%= genre.name %></li>
+                        <% }) %>
+                    </ul>
+                  
+                  </td>
+                  <td>$ <%= peli.price %> </td>
+                  <td >
+                    <div class="d-flex justify-content-around">
+                      <a href="/admin/products/edit/<%= peli.id %>"><button type="button" class="btn btn-success" style="width: 50px;"><i
+                        class="fas fa-pencil-alt"></i></button></a>
+                  <form action="/admin/products/<%= peli.id %>/dlt?_method=DELETE" method="post"> <button type="submit"
+                      class="btn btn-danger" style="width: 50px;"><i class="fas fa-trash"></i></button></a>
+                  </form>
+                    </div>
+                 
+                  </td>
+                </tr>
+                <% }) %>
+        
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+     
+    
   
     </main>
     

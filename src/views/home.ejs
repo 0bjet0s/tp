@@ -18,19 +18,19 @@
                 <!-- seccion principal -->
                 <div class="main-section flex">
                     <!-- peliculas -->
-                    <section class="container-articles flex">
+                    <section class="container-articles flex" id="pelis">
 
                         <% peliculas.forEach(pelicula=> { %>
-                            <article class="article flex">
+                            <article class="article flex animate__animated animate__fadeIn">
                                 <div class="img-container flex">
                                     <button class="btn-play" id="<%= pelicula.id %> ">
                                         <img src="/design/images/icons/play-circle-regular.png" alt=""
-                                            onclick="alert('mirate este trailer de <%= pelicula.title %>')">
+                                            onclick="viewTrailer('<%=pelicula.trailer%>')">
                                     </button>
                                     <img src="/design/images/products/<%= pelicula.image %>" alt="articulo">
                                 </div>
                                 <div class="data-article flex">
-                                    <a href="/products/detail/<%= pelicula.id %>">
+                                    <a href="/peliculas/detalle/<%= pelicula.id %>">
                                         <div class="titulo">
                                             <h4 class="noun"><%= pelicula.title %></h4>
                                         </div>
@@ -52,10 +52,10 @@
                                 <div class="title">
                                     <h2>CATEGORIAS</h2>
                                 </div>
-                                <ul class="list">
+                                <ul class="list p-0">
                                     <% generos.forEach(genero=> { %>
                                         <li>
-                                              <a href="/peliculas/genero/<%= genero.id %>"><%= genero.name %></a>
+                                              <a href="/peliculas/genero/<%= genero.id %>#pelis"><%= genero.name %></a>
                                         </li>
                                         <% }) %>
                                 </ul>
@@ -65,9 +65,9 @@
                                 <div class="title">
                                     <h2>AÑO</h2>
                                 </div>
-                                <ul id="anios" class="list">
+                                <ul id="anios" class="list p-0">
                                     <% anios.forEach(anio=> { %>
-                                        <li><a href="#">
+                                        <li><a href="/peliculas/anio/<%= anio %>#pelis">
                                                 <%= anio %>
                                             </a></li>
                                         <% }) %>
@@ -76,36 +76,13 @@
                         </nav>
                     </div>
                 </div>
-
             </main>
             <!-- FOOTER -->
             <%- include('partials/footer1') %>
 
-                <template id="model-card">
-                    <article class="article flex">
-                        <div class="img-container flex">
-                            <button class="btn-play">
-                                <img src="/design/images/icons/play-circle-regular.png" alt=""
-                                    onclick="alert('mirate este trailer de')">
-                            </button>
-                            <img id="template-img" alt="articulo">
-                        </div>
-                        <div class="data-article flex">
-                            <a>
-                                <div class="titulo">
-                                    <h4 class="noun"></h4>
-                                </div>
-                                <div class="footer-article">
-                                    <i class="far fa-heart"></i>
-                                    <span class="precio"></span> 
-                                </div>
-                            </a>
-                        </div>
-                    </article>
-                </template>
-                
+                           
                 <!-- funcion que maneja el menu desplegable del navBar -->
-                <script>
+              <!--   <script>
                     let $btnMenu = document.querySelector('header .sub-menu'),
                         $navBar = document.querySelector('.container-nav.in')
 
@@ -114,8 +91,9 @@
                     }
 
                     $btnMenu.addEventListener('click', togle);
-                </script>
+                </script> -->
 
+                <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
                 <script>
                     let $inputSearcher = document.querySelector('header .searcher-bar #buscador'),
@@ -141,6 +119,26 @@
                     // $inputSearch.addEventListener('focusout', hidePreSearch)
                     // $inputSearch.addEventListener('onchange', showPreSearch)
 
+                </script>
+
+
+                <script>
+                    const viewTrailer = (trailer) => {
+                        Swal.fire({
+                            html: trailer,
+                            showClass: {
+                                popup: 'animate__animated animate__fadeInDown'
+                            },
+                            hideClass: {
+                                popup: 'animate__animated animate__fadeOutUp'
+                            },
+                            width: '100%',
+                            showConfirmButton : false,
+                            showCloseButton: true
+
+                        })
+                    }
+                  
                 </script>
 
                 <%- include('partials/carrusel')  %> 

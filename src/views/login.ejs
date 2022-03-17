@@ -16,48 +16,48 @@
 
           <form class="aux" action="/user/login" method="POST">
 
+            <div class="mb-4">
+              <input class="inp" type="email" name="email" placeholder="Ingrese su Usuario">
 
-            <span class="icon-user"></span><input class="inp" type="email" name="email"
-              placeholder="Ingrese su Usuario"><br>
+              <% if (locals.errors && errors.email) { %>
+                <small class="text-danger">
+                  <%= errors.email.msg %>
+                </small>
+                <% } %>
+            </div>
+            <div class="mb-4">
+              <input class="inp" type="password" name="pass" value="" placeholder="Ingrese su Contraseña"><br>
+              <% if (locals.errors && errors.pass) { %>
+                <small class="text-danger">
+                  <%= errors.pass.msg %>
+                </small>
+                <% } %>
+            </div>
 
-            <% if (locals.errors && errors.email) { %>
+            <% if (locals.errors && errors.custom) { %>
               <small class="text-danger">
-                <%= errors.email.msg %>
+                <%= errors.custom.msg %>
               </small>
               <% } %>
 
 
-                <span class="icon-key"></span>
-                <input class="inp" type="password" name="pass" value="" placeholder="Ingrese su Contraseña"><br>
-                <% if (locals.errors && errors.pass) { %>
-                  <small class="text-danger">
-                    <%= errors.pass.msg %>
-                  </small>
-                  <% } %>
+                <div class="mb-4">
+
+                  <input type="checkbox" name="remember" id="check">
+                  <label for="check">Recordar</label>
 
 
+                </div>
+                <div class="mb-4">
+                  <button class="btn btn-submit" type="submit">INICIAR SESION</button>
 
-                    <% if (locals.errors && errors.custom) { %>
-                      <small class="text-danger">
-                        <%= errors.custom.msg %>
-                      </small>
-                      <% } %>
+                </div>
 
-
-                        <div>
-
-                          <input type="checkbox" name="remember" id="check">
-                          <label for="check">Recordar</label>
-                          <br>
-
-                          <div><button class="btn btn-submit" type="submit">INICIAR SESION</button>
-                          </div>
-                        </div>
           </form>
 
-          <h3 id="login-txt">¿Has olvidado tu contraseña?</h3>
-          <h2><a href="https://mail.google.com/mail/u/0/#inbox?compose=new" class="he">RECUPERAR CONTRASEÑA</a></h2>
-          <h3 id="login-txt">¿No tienes cuenta aún?</h3>
+          <h3 class="mb-3" id="login-txt">¿Has olvidado tu contraseña?</h3>
+          <h2 class="mb-3"><a href="https://mail.google.com/mail/u/0/#inbox?compose=new" class="he">RECUPERAR CONTRASEÑA</a></h2>
+          <h3 class="mb-3" id="login-txt">¿No tienes cuenta aún?</h3>
           <h2><a href="/user/register" class="he">REGISTRARSE</a></h2>
 
 

@@ -51,4 +51,31 @@ module.exports = {
             console.log(error)
         }
     },
+    filterByYear: async (req, res) => {
+        try {
+            let year = req.params.id;
+            // console.log(`id: ${id}`)
+            let peliculas = await db.Movie.findAll({
+                where : {
+                    year
+                },
+                include: [{ all: true }]
+            });
+            let genres = await db.Genre.findAll();
+            let dataYears = await db.Movie.findAll({
+                attributes: ["year"],
+                group: ["year"],
+                // having: "",
+            })
+            return res.render('home', {
+                titulo: "Trimovie - Inicio",
+                peliculas,
+                generos: genres,
+                anios: dataYears.map(element => element.year),
+                session: req.session.user,
+            })
+        } catch (error) {
+            console.log(error)
+        }
+    },
 }

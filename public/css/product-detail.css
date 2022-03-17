@@ -203,7 +203,6 @@
 
 @media (min-width: 520px) {
     .product-detail .info-sell {
-        position: absolute;
         right: 0;
         bottom: 0;
     }

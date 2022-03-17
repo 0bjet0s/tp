@@ -1,3 +1,6 @@
+const fs = require('fs');
+const path = require('path');
+
 const { validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
 const db = require('../database/models');
@@ -122,7 +125,7 @@ module.exports = {
     update : (req,res) => {
         
         let {name, lastname, date, phone} = req.body;
-        console.log(req.body.date);
+        
         let {id} = req.params;
 
         db.User.update(
@@ -131,6 +134,7 @@ module.exports = {
                 lastname,
                 date,
                 phone,
+                avatar: req.file ? req.file.filename : req.session.user.avatar,
             },
             {
                 where : {
@@ -138,6 +142,16 @@ module.exports = {
                 }
             }
         ).then( () => {
+            
+            if(req.file){
+                if(fs.existsSync(path.join(__dirname,'../../public/design/images/avatars/' + req.session.user.avatar))){
+                    fs.unlinkSync(path.join(__dirname,'../../public/design/images/avatars/' + req.session.user.avatar))
+        
+               req.session.user.avatar = req.file.filename
+           }
+        }
+
+            
             return res.redirect('/user/profile')
         }).catch(error => console.log(error))
     },
@@ -148,5 +162,10 @@ module.exports = {
             session: req.session.user
         });
     },
+
+    /* apis */
+    changeImage : (req,res) => {
+
+    }
 
 }
