@@ -1,8 +1,8 @@
 <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
         <% banners.forEach((banner, index) => { %>
-        <div class="carousel-item <%= index==0? 'active':'' %> ">
-            <img src="/design/images/carrousel/<%= banner.image %>" class="d-block w-100" alt="<%= banner.image %>">
+        <div class="carousel-item <%= index==0? 'active':'' %> " style="height: 300px; overflow: hidden;">
+            <img src="/design/images/carrousel/<%= banner.image %>" style="object-fit: cover;" class="d-block w-100" alt="<%= banner.image %>">
         </div>
         <% }) %>
     </div>
