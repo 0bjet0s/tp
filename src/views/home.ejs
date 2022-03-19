@@ -12,7 +12,7 @@
             <main class="home-container flex">
                 <!-- banner -->
                 <div class="banner">
-                    <img src="/design/images/carrousel/banner.png" alt="banner">
+                    <%- include('./partials/carrusel', {banners}) %> 
                 </div>
             
                 <!-- seccion principal -->
@@ -140,8 +140,6 @@
                     }
                   
                 </script>
-
-                <%- include('partials/carrusel')  %> 
     </body>
 
 </html>
