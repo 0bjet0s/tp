@@ -72,31 +72,7 @@ window.addEventListener('load', function() {
     })
 
     
-    $email.addEventListener('blur', function(){
-        switch (true) {
-            case !$email.value.trim():
-                $emailErrors.innerHTML = 'El email es obligatorio'
-                $email.style.color = 'red'
-                $check[2].style.display = 'none'
-                validationErrors = true
-                break;
-            case !regExEmail.test($email.value):
-                $emailErrors.innerHTML = 'No es un email válido'
-                $email.style.color = 'red'
-                $check[2].style.display = 'none'
-                validationErrors = true
-                break;
-            default:
-                $emailErrors.innerHTML = ''
-                $email.style.color = '#2940D3'
-                $email.style.backgroundColor = '#d8c371'
-                $email.style.border = 'none'
-                $check[2].style.display = 'block'
-                validationErrors = false
-                break;
-        }
-    })
-
+    
     $phone.addEventListener('blur', function(){
         switch (true) {
             case !regExPhone.test($phone.value):
