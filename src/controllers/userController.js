@@ -123,7 +123,10 @@ module.exports = {
     },
 
     update : (req,res) => {
-        
+
+    let errors = validationResult(req);
+    if(errors.isEmpty()) {
+       
         let {name, lastname, date, phone} = req.body;
         
         let {id} = req.params;
@@ -150,10 +153,13 @@ module.exports = {
                req.session.user.avatar = req.file.filename
            }
         }
-
+ 
             
             return res.redirect('/user/profile')
+        
+        
         }).catch(error => console.log(error))
+    }
     },
 
     "carrito": (req, res) => {
