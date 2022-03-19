@@ -24,7 +24,7 @@
                         </div>
                         <div class="col-12 col-md-6 col-lg-8">
                            
-                                <div class="mb-3">
+                                <div class="mb-3 column">
                                     <input class="input-style" type="name" name="name" id="name"placeholder="Ingrese su Nombre"
                                         value="<%= user.name %>">
                                     <% if (typeof errors !="undefined" && errors.name) { %>
@@ -34,7 +34,7 @@
                                         <% } %>
                                 </div>
 
-                                <div class="mb-3">
+                                <div class="mb-3 column">
                                     <input class="input-style" type="surname" name="lastname" id="lastname"
                                         placeholder="Ingrese su Apellido" value="<%= user.lastname %>">
                                     <% if (typeof errors !="undefined" && errors.lastname) { %>
@@ -44,13 +44,13 @@
                                         <% } %>
                                 </div>
 
-                                <div class="mb-3">
+                                <div class="mb-3 column">
                                     <input class="input-style" type="email" name="email" id="email" value="<%= user.email %>"
                                         readonly>
                                    
                                 </div>
 
-                                <div class="mb-3">
+                                <div class="mb-3 column">
                                     <input class="input-style" type="text" name="phone" id="phone" placeholder="Teléfono"
                                         value="<%= user.phone %>">
                                     <% if (typeof errors !="undefined" && errors.phone) { %>
@@ -59,7 +59,7 @@
                                         </span>
                                         <% } %>
                                 </div>
-                                <div class="mb-3">
+                                <div class="mb-3 column">
                                     <input class="input-style" type="date" name="date" id="date" value="<%= user.date %>">
                                     <% if (typeof errors !="undefined" && errors.date) { %>
                                         <span class="text-danger" id="dateErrors">
@@ -70,9 +70,8 @@
 
                                 <button type="submit" class="btn btn-submit" id="submit" style="margin-right: 10px;">Guardar
                                     cambios</button>
-                                    <% if (typeof errors !="undefined" && errors.date) { %>
-                                        <spanl class="text-danger" id="submitErrors"></span>
-                                        <% } %>
+                                    <small class="text-danger" id="submitErrors"></small>
+                                       
 
                         </div>
                     </div>
@@ -94,8 +93,8 @@
                         }
                     })
                 </script>
-                <script src="/js/profileValidatorFront.js"></script>
+               <!--<script src="/js/profileValidatorFront.js"></script>-->
 
-    </body>
+        </body>
 
 </html>

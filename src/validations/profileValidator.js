@@ -4,21 +4,26 @@ const db = require('../database/models')
 module.exports = [
     check('name')
     .notEmpty()
-    .withMessage('El nombre es necesario'),
+    .withMessage('El nombre es necesario')
+    .isLength({ min: 3})
+    .withMessage('El nombre debe tener al menos 3 letras'),
 
     check('lastname')
     .notEmpty()
+    .withMessage('El apellido es necesario')
+    .isLength({ min: 3})
     .withMessage('El apellido es necesario'),
 
-    check('email')
+   /* check('email')
     .isEmail()
-    .withMessage('Debes ingresar un email válido'),
+    .withMessage('Debes ingresar un email válido'),*/
+
     check('phone')
-    .isInt()
-    .withMessage('Debe ingresar un numero de telefono válido'),
+    .isNumeric()
+        .withMessage('Ingrese un numero de telefono válido'),
 
     check('date')
     .isDate()
-    .withMessage('Debe ingresar una fecha válida')
+    .withMessage('Ingrese una fecha válida')
 
 ]

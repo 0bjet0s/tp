@@ -153,12 +153,23 @@ module.exports = {
                req.session.user.avatar = req.file.filename
            }
         }
- 
-            
+   
             return res.redirect('/user/profile')
-        
-        
+            
         }).catch(error => console.log(error))
+    }else{
+        db.User.findByPk(req.session.user.id, {
+            include : [{all:true}]
+        }).then(user => {
+            return res.render('userProfile', {
+                titulo: "TRIMOVI",
+                session: req.session.user,
+                user,
+                errors:errors.mapped(),
+                old:req.body
+            })
+        })
+
     }
     },
 

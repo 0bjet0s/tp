@@ -9,16 +9,17 @@ window.addEventListener('load', function() {
     let $nameErrors = $('#nameErrors')
     let $lastname = $('#lastname');
     let $lastnameErrors = $('#lastnameErrors')
-    let $email = $('#email');
-    let $emailErrors = $('#emailErrors')
+   // let $email = $('#email');
+   // let $emailErrors = $('#emailErrors')
     let $phone = $('#phone');
     let $phoneErrors = $('#phoneErrors')
     let $date = $('#date');
     let $dateErrors = $('#dateErrors')
     
     let regExAlpha = /^[a-zA-Z\sñáéíóúü]*$/
-    let regExEmail = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i
-    
+  //  let regExEmail = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i
+    let regExphone=/^[0-9]{10}$/
+    regExDate=/^\d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])$/
     let validationErrors = false;
 
     $name.addEventListener('blur', function(){
@@ -26,12 +27,14 @@ window.addEventListener('load', function() {
             case !$name.value.trim():
                 $nameErrors.innerHTML = 'El nombre es obligatorio'
                 $name.style.color = 'red'
+                $name.style.fontSize = '10px';
                 $check[0].style.display = 'none'
                 validationErrors = true
                 break;
             case !regExAlpha.test($name.value) || $name.value.length < 3:
-                $nameErrors.innerHTML = 'Este no es un nombre válido'
+                $nameErrors.innerHTML = 'Debe tener al menos 3 letras'
                 $name.style.color = 'red'
+                $name.style.fontSize = '10px';
                 $check[0].style.display = 'none'
                 validationErrors = true
                 break;
@@ -49,14 +52,17 @@ window.addEventListener('load', function() {
     $lastname.addEventListener('blur', function(){
         switch (true) {
             case !$lastname.value.trim():
-                $lastnameErrors.innerHTML = 'El campo apellido es obligatorio'
+                $lastnameErrors.innerHTML = 'El apellido es obligatorio'
                 $lastname.style.color = 'red'
+                $lastname.style.fontSize = '10px';
                 $check[1].style.display = 'none'
                 validationErrors = true
                 break;
             case !regExAlpha.test($lastname.value) || $lastname.value.length < 3:
-                $lastnameErrors.innerHTML = 'No es un nombre válido'
+                $lastnameErrors.innerHTML = 'Debe tener al menos 3 letras'
                 $lastname.style.color = 'red'
+                $lastname.style.fontSize = '10px';
+
                 $check[1].style.display = 'none'
                 validationErrors = true
                 break;
@@ -76,8 +82,10 @@ window.addEventListener('load', function() {
     $phone.addEventListener('blur', function(){
         switch (true) {
             case !regExPhone.test($phone.value):
-                $phoneErrors.innerHTML = 'Este teléfono no es válido';
+                $phoneErrors.innerHTML = 'Igrese un teléfono válido';
                 $phone.style.color = 'red';
+                $phone.style.fontSize = '10px';
+
                 validationErrors = true;
                 break;
             default:
