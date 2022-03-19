@@ -45,6 +45,7 @@ module.exports = {
                 titulo: "Trimovie - Inicio",
                 peliculas: genre.movies,
                 generos: genres,
+                banners: getBanners,
                 anios: dataYears.map(element => element.year),
                 session: req.session.user,
             })
