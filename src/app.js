@@ -37,6 +37,7 @@ app.use('/user', userRouter);
 app.use('/faq', faqRouter);
 
 app.use('/peliculas',require('./routes/peliculas'))
+app.use('/api',require('./api/routes/products'));
 
 
 app.use((req, res, next) => {
