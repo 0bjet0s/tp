@@ -163,6 +163,12 @@ module.exports = {
         });
     },
     
+    "paymentPageRender": (req, res) => {
+        res.render('Pago', {
+            session: req.session.user,
+        })
+    },
+
 
     /* apis */
     changeImage : (req,res) => {

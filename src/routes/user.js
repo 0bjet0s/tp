@@ -18,4 +18,7 @@ router.post('/register', uploadFile.single('avatarimage'),registerValidator, con
 router.post('/login', loginValidator ,controller.login)
 router.get('/logout', controller.logout)
 /*router.post('/creacionPeliculas', uploadFile.single('imageCreate'),registerValidator, controller.processCreate)*/
+
+router.get('/payment', onlyLoguedUsers, controller.paymentPageRender);
+
 module.exports = router
