@@ -162,6 +162,7 @@ module.exports = {
             session: req.session.user
         });
     },
+    
 
     /* apis */
     changeImage : (req,res) => {

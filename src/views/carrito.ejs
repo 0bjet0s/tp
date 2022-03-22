@@ -73,12 +73,12 @@
         
                     <div class="col-2">
                         <div class="shopping-cart-header">
-                            <h6 class="tipo1" style=" font-size: 23px;">Precio</h6>
+                            <h6 class="tipo1" style=" font-size: 23px; position: relative ; right: 6rem;">Precio</h6>
                         </div>
                     </div>
                     <div class="col-4" id="deletecar">
                         <div class="shopping-cart-header">
-                            <h6 class="tipo" style=" font-size: 23px;">Eliminar</h6>
+                            <h6 class="tipo" style=" font-size: 23px; right: 2rem; position: relative;">Eliminar</h6>
                     
                         </div>
                     
@@ -148,20 +148,24 @@
             
                     <p class="valor">$780</i></p>
                     <div class="container-verde">
-                    <buttom Onclick="clic()" class="btn-verdecart"><span>Terminar</span></buttom>
+                        
+                    <a href="/views/Pago.ejs "><buttom Onclick="clic()" class="btn-verdecart"><span>Terminar</span></buttom></a>
 
                     
                     </div>
 
                     <div class="cupón">
                         <div class="text">
-                            <input class="cuppon"type="text" placeholder="Cupón"/>
+                            <input class="cuppon"type="text" placeholder="Cupón de descuento"/>
+                           
                         </div>
                    </div>
                    <div class="containerback">
                    <div class="containertarjeta">
-                       <h1 style="color: rgb(235, 235, 235); font-size: 30px; ">Aceptamos todas las tarjetas </h1>
-                       <i id="tarjet"class="fas fa-credit-card"></i>
+                   
+                       <i id="tarjet" class="fa-solid fa-ticket"></i>
+                       <i class="fa-solid fa-ticket"></i>
+               
                    
                    </div>
                    </div>
@@ -194,6 +198,10 @@
             </div>
         </footer> -->
 
+
+
+
+        
 
     <script > 
     function clic(){

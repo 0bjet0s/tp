@@ -84,7 +84,7 @@ boody {
   backdrop-filter: blur(20px);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  height: 600px;
+  height: 800px;
   width: 600px;
   border-radius: 10px;
   position: relative;
@@ -132,6 +132,7 @@ h1 {
   height: 120px;
   position: relative;
   left: 2rem;
+ 
 }
 
 .shopping-cart-header {
@@ -145,6 +146,8 @@ h1 {
 
 .item-total{
   color: #fff;
+  font-size: 1.4rem;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 /*efecto*/
 
@@ -156,7 +159,7 @@ h1 {
 .portafolio-item {
   width: 20%;
   position: relative;
-  bottom: 11rem;
+  bottom: 13rem;
   left: 2rem;
   overflow: hidden;
 }
@@ -213,16 +216,17 @@ box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 .pre-cant {
   display: inline-block;
   position: relative;
-  left: 1rem;
+  left: 2rem;
   bottom: 30rem;
   color: #fff;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
 }
 .number {
   position: relative;
   top: 8rem;
   color: #fff;
   font-size: 1.2rem;
+  font-size: 1.5rem;
 }
 
 .imp {
@@ -249,7 +253,7 @@ box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 #btn-borrar {
   
   cursor: pointer;
-  bottom: 19rem;
+  bottom: 20rem;
   position: relative;
   left: 3cm;
  
@@ -272,7 +276,7 @@ box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
   position: relative;
   bottom: 11rem;
   right: 8rem;
-  color: rgb(47, 170, 47);
+  color: rgba(0, 0, 0, 0.486);
   font-weight: bold;
   font-size: 1.5rem;
 }
@@ -441,16 +445,14 @@ footer div.redes-flex ul li {
      
      }
 
-.tipo1{
-left: 3rem;
 
-}
 
 
 .tipo{
- 
+ position: relative;
   font-size: 18px;
   flex-direction: column;
+  right: 2rem;
   
 
 }
