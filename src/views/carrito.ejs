@@ -58,27 +58,27 @@
      
 
 <body class="container-caja">
-    <h1 class="text-center">Carrito</h1>
+    <h1 class="text-center">Tus compras</h1>
     <div class="container-flex">
 
         <section class="shopping-cart">
             <div class="container">
                 
-                <div class="row">
+                <div class="row1">
                     <div class="col-6">
                         <div class="shopping-cart-header">
-                            <h6>Producto</h6>
+                            <h6 class="tipo" style=" font-size: 23px;">Producto</h6>
                         </div>
                     </div>
         
                     <div class="col-2">
                         <div class="shopping-cart-header">
-                            <h6 class="text-truncate">Precio</h6>
+                            <h6 class="tipo1" style=" font-size: 23px;">Precio</h6>
                         </div>
                     </div>
                     <div class="col-4" id="deletecar">
                         <div class="shopping-cart-header">
-                            <h6>Eliminar</h6>
+                            <h6 class="tipo" style=" font-size: 23px;">Eliminar</h6>
                     
                         </div>
                     
@@ -107,7 +107,8 @@
                         
                         
                  
-                    <button Onclick="delette()" class="btn-delete" type="button"><i id ="btndelete"class="fas fa-trash"></i></button>
+                   
+                    <button type="button" class="btn btn-outline-danger">Borrar</button>
                     
                     <div class="imgcontainer">
                         <section class="portafolio-item">
@@ -138,8 +139,7 @@
                     </div>
                     
                     
-                    <button Onclick="delette()"class="btn-delete1" type="button" style="width: 0px;"><i id="btndelete" class="fas fa-trash"></i></button>
-                    
+                    <button type="button" id="btn-borrar" class="btn btn-outline-danger">Borrar</button>
                     <hr class="gradient2">
 
                    <div class="container-row-flex">
