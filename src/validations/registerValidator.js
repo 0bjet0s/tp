@@ -26,9 +26,11 @@ module.exports = [
 
     check('pass1')
     .notEmpty()
-    .withMessage('Debes escribir tu contraseña'),
+    .withMessage('Debes escribir tu contraseña')
+    .isLength(6)
+    .withMessage('La contraseña debe contener al menos 6 caracteres'),
 
-    body('pass2').custom((value, {
+   body('pass2').custom((value, {
         req
     }) => value !== req.body.pass1 ? false : true)
     .withMessage('Las contraseñas no coinciden'),

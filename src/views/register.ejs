@@ -62,13 +62,13 @@
                             <% } %>
                         </div>
                         <div class="form-check">
-                            <input name="terms" class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <input name="terms" class="form-check-input" id="terms" type="checkbox" value="" id="flexCheckDefault">
                             <label class="form-check-label" for="flexCheckDefault">
                                 Acepto los <a href="">términos y condiciones</a>
                             </label>
                           </div>
                           <% if (locals.errors && errors.terms) { %>
-                            <small class="text-danger"><%= errors.terms.msg %></small>
+                            <small class="text-danger" id="termsErrors"><%= errors.terms.msg %></small>
                         <% } %>
 
                         <span class="error-message">Hubo errores en el envío</span>
@@ -85,7 +85,7 @@
             </div>
         </div>
     </main>
-
+<script>"/js/registerValidator.js"</script>
 </body>
 
 </html>
