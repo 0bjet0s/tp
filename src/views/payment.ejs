@@ -1,4 +1,4 @@
-<!doctype html>
+<!--<!doctype html>
 <html lang="es">
 
 <head>
@@ -8,75 +8,61 @@
   <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
   <meta name="generator" content="Hugo 0.88.1">
   <title>Checkout</title>
-
+  <link rel="stylesheet" href="/public/css/general.css">
   <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/checkout/">
+-->
 
+<!DOCTYPE html>
+<html lang="es">
 
+ <%- include ('partials/head',{titulo:"payment"})%>
+  
+    <body  style=" background: #0099F7 !important;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #F11712, #0099F7) !important;  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #F11712, #0099F7) !important; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */  ">
+      <%- include ('partials/header1')%>
 
   <!-- Bootstrap core CSS -->
   <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
-
-  <style>
-    .bd-placeholder-img {
-      font-size: 1.125rem;
-      text-anchor: middle;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      user-select: none;
-    }
-
-    @media (min-width: 768px) {
-      .bd-placeholder-img-lg {
-        font-size: 3.5rem;
-      }
-    }
+  <!--<link rel="stylesheet" href="/public/css/general.css">-->
   </style>
 
 
   <!-- Custom styles for this template -->
-  <link href="../js/form-validation.css" rel="stylesheet">
+  <link href="/js/form-validation.css" rel="stylesheet">
 </head>
 
-<body class="bg-light">
+
 
   <div class="container">
     <main>
-      <div class="py-5 text-center">
-        <img class="d-block mx-auto mb-4" src="../images/Logo.png" alt="" width="72" height="57">
-        <h2>Pago</h2>
-      </div>
+        <i class="bi bi-credit-card"> <h2 style="font-size: 3rem; font-family:'Times New Roman', Times, serif; margin-bottom: 4rem; margin-top: 1rem;">Pago</h2></i>
 
       <div class="row g-5">
         <div class="col-md-5 col-lg-4 order-md-last">
           <h4 class="d-flex justify-content-between align-items-center mb-3">
             <span class="text-primary">Tu carrito</span>
-            <span class="badge bg-primary rounded-pill">3</span>
+            <span class="badge bg-primary rounded-pill">2</span>
           </h4>
           <ul class="list-group mb-3">
             <li class="list-group-item d-flex justify-content-between lh-sm">
               <div>
-                <h6 class="my-0">Product name</h6>
-                <small class="text-muted">Brief description</small>
+                <h6 class="my-0">Liga de la justicia oscura</h6>
+                <small class="text-muted">Acción y aventura</small>
               </div>
-              <span class="text-muted">$12</span>
+              <span class="text-muted">$380</span>
             </li>
             <li class="list-group-item d-flex justify-content-between lh-sm">
               <div>
-                <h6 class="my-0">Second product</h6>
-                <small class="text-muted">Brief description</small>
+                <h6 class="my-0">El viaje de Chihiro</h6>
+                <small class="text-muted">Aventura y fantasia</small>
               </div>
-              <span class="text-muted">$8</span>
+              <span class="text-muted">$400</span>
             </li>
-            <li class="list-group-item d-flex justify-content-between lh-sm">
-              <div>
-                <h6 class="my-0">Third item</h6>
-                <small class="text-muted">Brief description</small>
-              </div>
-              <span class="text-muted">$5</span>
-            </li>
+            
             <li class="list-group-item d-flex justify-content-between">
               <span>Total</span>
-              <strong>$20</strong>
+              <strong>$780</strong>
             </li>
           </ul>
 
@@ -134,6 +120,11 @@
                 <select class="form-select" id="country" required>
                   <option value="">Ninguno</option>
                   <option>Argentina</option>
+                  <option>España</option>
+                  <option>Perú</option>
+                  <option>Bolivia</option>
+                  <option>Uruguay</option>
+                  <option>Paraguay</option>
                 </select>
                 <div class="invalid-feedback">
                   Seleccione un país válido.
@@ -141,10 +132,14 @@
               </div>
 
               <div class="col-md-4">
-                <label for="state" class="form-label">Provincia</label>
+                <label for="state" class="form-label">Provincia/Ciudad</label>
                 <select class="form-select" id="state" required>
                   <option value="">Ninuna</option>
                   <option>Córdoba</option>
+                  <option>Gran Buenos Aires</option>
+                  <option>Capital Federal</option>
+                  <option>Mendoza</option>
+                  <option>Misiones</option>
                 </select>
                 <div class="invalid-feedback">
                   Proporcione un provincia válido.
@@ -168,12 +163,16 @@
 
             <hr class="my-4">
 
-            <h4 class="mb-3">Pago</h4>
-
+            
+            <i class="bi bi-credit-card"><h4 class="mb-3">Pago</h4></i>
             <div class="my-3">
               <div class="form-check">
                 <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked required>
                 <label class="form-check-label" for="credit">Tarjeta de crédito</label>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-credit-card" viewBox="0 0 16 16">
+                  <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v1h14V4a1 1 0 0 0-1-1H2zm13 4H1v5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V7z"/>
+                  <path d="M2 10a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-1z"/>
+                </svg>
               </div>
               <div class="form-check">
                 <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required>
@@ -218,27 +217,22 @@
 
             <hr class="my-4">
 
-            <button class="w-100 btn btn-primary btn-lg" type="submit">Pagar</button>
+            <button style="margin-top:1rem; margin-bottom:3rem " class="w-100 btn btn-primary btn-lg" type="submit">Pagar</button>
           </form>
-          <li><a href="/">Volver</a></li>
-        </div>
+           </div>
       </div>
     </main>
 
-    <footer class="my-5 pt-5 text-muted text-center text-small">
-      <p class="mb-1">&copy; 2017–2021 Company Name</p>
-      <ul class="list-inline">
-        <li class="list-inline-item"><a href="#">Privacy</a></li>
-        <li class="list-inline-item"><a href="#">Terms</a></li>
-        <li class="list-inline-item"><a href="#">Support</a></li>
-      </ul>
-    </footer>
+  
+
+   
   </div>
 
 
   <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 
   <script src="../js/form-validation.js"></script>
+  <script src="/js/form-validation.js"></script>
 </body>
 
 </html>
