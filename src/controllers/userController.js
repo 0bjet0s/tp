@@ -124,61 +124,67 @@ module.exports = {
 
     update : (req,res) => {
 
-    let errors = validationResult(req);
-    if(errors.isEmpty()) {
-       
-        let {name, lastname, date, phone} = req.body;
-        
-        let {id} = req.params;
-
-        db.User.update(
-            {
-                name,
-                lastname,
-                date,
-                phone,
-                avatar: req.file ? req.file.filename : req.session.user.avatar,
-            },
-            {
-                where : {
-                    id
+        let errors = validationResult(req);
+        if(errors.isEmpty()) {
+           
+            let {name, lastname, date, phone} = req.body;
+            
+            let {id} = req.params;
+    
+            db.User.update(
+                {
+                    name,
+                    lastname,
+                    date,
+                    phone,
+                    avatar: req.file ? req.file.filename : req.session.user.avatar,
+                },
+                {
+                    where : {
+                        id
+                    }
                 }
+            ).then( () => {
+                
+                if(req.file){
+                    if(fs.existsSync(path.join(__dirname,'../../public/design/images/avatars/' + req.session.user.avatar))){
+                        fs.unlinkSync(path.join(__dirname,'../../public/design/images/avatars/' + req.session.user.avatar))
+            
+                   req.session.user.avatar = req.file.filename
+               }
             }
-        ).then( () => {
-            
-            if(req.file){
-                if(fs.existsSync(path.join(__dirname,'../../public/design/images/avatars/' + req.session.user.avatar))){
-                    fs.unlinkSync(path.join(__dirname,'../../public/design/images/avatars/' + req.session.user.avatar))
-        
-               req.session.user.avatar = req.file.filename
-           }
-        }
-   
-            return res.redirect('/user/profile')
-            
-        }).catch(error => console.log(error))
-    }else{
-        db.User.findByPk(req.session.user.id, {
-            include : [{all:true}]
-        }).then(user => {
-            return res.render('userProfile', {
-                titulo: "TRIMOVI",
-                session: req.session.user,
-                user,
-                errors:errors.mapped(),
-                old:req.body
+       
+                return res.redirect('/user/profile')
+                
+            }).catch(error => console.log(error))
+        }else{
+            db.User.findByPk(req.session.user.id, {
+                include : [{all:true}]
+            }).then(user => {
+                return res.render('userProfile', {
+                    titulo: "TRIMOVI",
+                    session: req.session.user,
+                    user,
+                    errors:errors.mapped(),
+                    old:req.body
+                })
             })
-        })
-
-    }
-    },
-
+    
+        }
+        },
     "carrito": (req, res) => {
         res.render("carrito", {
             title: "carrito",
             session: req.session.user
         });
     },
+    
+    "paymentPageRender": (req, res) => {
+        res.render('Pago', {
+            session: req.session.user,
+        })
+    },
+
 
     /* apis */
     changeImage : (req,res) => {

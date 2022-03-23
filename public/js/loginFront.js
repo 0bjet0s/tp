@@ -18,7 +18,7 @@ window.addEventListener('load', function() {
 
     $email.addEventListener('blur', function(){
         switch (true) {
-            case !$email.value.trim():
+            case !$email.value://.trim()
                 $emailErrors.innerHTML = 'El email es obligatorio'
                 $email.style.color = 'red'
                 validationErrors = true
@@ -30,8 +30,8 @@ window.addEventListener('load', function() {
                 break;
             default:
                 $emailErrors.innerHTML = ''
-                $email.style.color = '#2940D3'
-                $email.style.backgroundColor = '#d8c371'
+                //$email.style.color = '#2940D3'
+               // $email.style.backgroundColor = '#d8c371'
                 $email.style.border = 'none'
                 validationErrors = false
                 break;
@@ -52,9 +52,9 @@ window.addEventListener('load', function() {
                 break;
             default:
                 $passErrors.innerHTML = ''
-                $pass.style.color = '#2940D3'
+               // $pass.style.color = '#2940D3'
                 $pass.style.border = 'none'
-                $pass.style.backgroundColor = '#d8c371'
+                //$pass.style.backgroundColor = '#d8c371'
                 validationErrors = false
                 break;
         }

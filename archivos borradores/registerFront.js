@@ -26,17 +26,19 @@ window.addEventListener('load', function() {
 
     $name.addEventListener('blur', function(){
         switch (true) {
-            case !$name.value.trim() || $name.value.length < 3:
-                $nameErrors.innerHTML = 'Ingrese un nombre válido. Min: 3 letras'
-                $nameErrors.style.color = 'purple'
-                $name.style.color = 'red'
+            case !$name.value.trim():
+                $nameErrors.innerHTML = 'Ingrese un nombre'
+                $name.style.color = 'purple'
+                $name.style.fontSize = '10px'
+                $name.style.fontWeight = 'bold'
                 $check[0].style.display = 'none'
                 validationErrors = true
                 break;
-            case !regExAlpha.test($name.value):
-                $nameErrors.innerHTML = 'Ingrese un nombre válido.'
+            case !regExAlpha.test($name.value) || $name.value.length < 3:
+                $nameErrors.innerHTML = 'Ingrese un nombre válido. Min: 3 letras'
                 $nameErrors.style.color = 'purple'
-                $name.style.color = 'red'
+                $nameErrors.style.fontSize = '10px'
+                $nameErrors.style.fontWeight = 'bold'
                 $check[0].style.display = 'none'
                 validationErrors = true
                 break;
@@ -53,17 +55,19 @@ window.addEventListener('load', function() {
 
     $lastname.addEventListener('blur', function(){
         switch (true) {
-            case !$lastname.value.trim()  || $lastname.value.length < 3:
-                $lastnameErrors.innerHTML = 'Ingrese su apellido. Min: 3 letras'
-                $lastnameErrors.style.color = 'purple'
-                $lastname.style.color = 'red'
+            case !$lastname.value.trim():
+                $lastnameErrors.innerHTML = 'Ingrese su apellido'
+                $lastname.style.color = 'purple'
+                $lastname.style.fontSize = '10px'
+                $lastname.style.fontWeight = 'bold'
                 $check[1].style.display = 'none'
                 validationErrors = true
                 break;
-            case !regExAlpha.test($lastname.value):
-                $lastnameErrors.innerHTML = 'Ingrese un apellido válido'
-                $lastnameErrors.style.color = 'purple'
-                $lastname.style.color = 'red'
+            case !regExAlpha.test($lastName.value) || $lastName.value.length < 3:
+                $lastnameErrors.innerHTML = 'Ingrese un nombre válido'
+                $lastname.style.color = 'purple'
+                $lastname.style.fontSize = '10px'
+                $lastname.style.fontWeight = 'bold'
                 $check[1].style.display = 'none'
                 validationErrors = true
                 break;
@@ -83,15 +87,18 @@ window.addEventListener('load', function() {
         switch (true) {
             case !$email.value.trim():
                 $emailErrors.innerHTML = 'Ingrese su email'
-                $emailErrors.style.color = 'purple'
-                $email.style.color = 'red'
+                $email.style.color = 'purple'
+                $email.style.fontSize = '10px'
+                $email.style.fontWeight = 'bold'
                 $check[2].style.display = 'none'
                 validationErrors = true
                 break;
             case !regExEmail.test($email.value):
                 $emailErrors.innerHTML = 'Ingrese un email válido'
-                $emailErrors.style.color = 'purple'
                 $email.style.color = 'red'
+                $email.style.color = 'purple'
+                $email.style.fontSize = '10px'
+                $email.style.fontWeight = 'bold'
                 $check[2].style.display = 'none'
                 validationErrors = true
                 break;
@@ -108,17 +115,19 @@ window.addEventListener('load', function() {
 
     $pass1.addEventListener('blur', function(){
         switch (true) {
-            case !$pass1.value.trim()|| $pass1.value.length < 6:
-                $pass1Errors.innerHTML = 'Ingrese una contraseña con mas de 6 caracteres'
-                $pass1Errors.style.color = 'purple'
+            case !$pass1.value.trim():
+                $pass1Errors.innerHTML = 'Ingrese una contraseña'
                 $pass1.style.color = 'red'
-                 $check[3].style.display = 'none'
+                $pass1.style.fontSize = '10px'
+                $pass1.style.fontWeight = 'bold'
+                $check[3].style.display = 'none'
                 validationErrors = true
                 break;
-            case !regExPass.test($pass1.value):
-                $pass1Errors.innerHTML = 'La contraseña debe contener letras y numeros'
-                $pass1Errors.style.color = 'purple'
+            case !regExPass.test($pass1.value)|| $pass1.value.length < 6:
+                $pass1Errors.innerHTML = 'La contraseña debe ser mayor a 6 caracteres y debe contener letras y numeros'
                 $pass1.style.color = 'red'
+                $pass1.style.fontSize = '10px'
+                $pass1.style.fontWeight = 'bold'
                 $check[3].style.display = 'none'
                 validationErrors = true
                 break;
@@ -145,7 +154,6 @@ window.addEventListener('load', function() {
                 break;
             case $pass2.value !== $pass1.value || $pass2.value.length < 6:
                 $pass2Errors.innerHTML = 'Las contraseñas no coinciden'
-                $pass2Errors.style.color = 'purple'
                 $pass2.style.color = 'red'
                 $check[4].style.display = 'none'
                 validationErrors = true
@@ -163,7 +171,7 @@ window.addEventListener('load', function() {
 
     $terms.addEventListener('click', function(){
         if(!$terms.checked) {
-            $termsErrors.innerHTML = 'Aceptar los terminos y condiciones'
+            $termsErrors.innerHTML = 'Debes aceptar los terminos y condiciones'
         } else {
             $termsErrors.innerHTML = ''
         }

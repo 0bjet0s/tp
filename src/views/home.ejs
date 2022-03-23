@@ -9,14 +9,11 @@
         <%- include('./partials/header1') %>
             <!--  -->
 
-            <main class="home-container flex">
+            <main class="home-container">
                 <!-- banner -->
                 <div class="banner">
-                    <img src="/design/images/carrousel/banner.png" alt="banner">
+                    <%- include('./partials/carrusel', {banners}) %> 
                 </div>
-
-               
-
             
                 <!-- seccion principal -->
                 <div class="main-section flex">
@@ -143,8 +140,6 @@
                     }
                   
                 </script>
-
-                <%- include('partials/carrusel')  %> 
     </body>
 
 </html>

@@ -20,55 +20,55 @@
                 <h1>Registro</h1>
                 <hr>
 
-                <form action="/user/register" id="form" method="POST" enctype="multipart/form-data" class="form-ad">
+                <form action="/user/register" method="POST" enctype="multipart/form-data" class="form-ad">
                     <div class="form-regis">
 
-                        <div class="input-container column">
-                            <input class="input-style" id="name" type="name" name="name" placeholder="Ingrese su Nombre"
+                        <div class="input-container">
+                            <input class="input-style" type="name" name="name" placeholder="Ingrese su Nombre"
                                 value="<%= locals.old && old.name %>">
                             <% if (typeof errors != "undefined" && errors.name) { %>
-                            <span class="text-danger profile" id="nameErrors"><%= errors.name.msg %> </span>
+                            <span class="text-danger"><%= errors.name.msg %> </span>
                             <% } %>
                         </div>
 
-                        <div class="input-container column">
-                            <input class="input-style"id="lastname" type="surname" name="lastname" placeholder="Ingrese su Apellido"
+                        <div class="input-container">
+                            <input class="input-style" type="surname" name="lastname" placeholder="Ingrese su Apellido"
                                 value="<%= locals.old && old.lastname %>">
                             <% if (typeof errors != "undefined" && errors.lastname) { %>
-                            <span class="text-danger" id="lastnameErrors"><%= errors.lastname.msg %> </span>
+                            <span class="text-danger"><%= errors.lastname.msg %> </span>
                             <% } %>
                         </div>
 
-                        <div class="input-container column">
-                            <input class="input-style" id="email" type="email" name="email" placeholder="Ingrese su Email"
+                        <div class="input-container">
+                            <input class="input-style" type="email" name="email" placeholder="Ingrese su Email"
                                 value="<%= locals.old && old.email %>">
                             <% if (typeof errors != "undefined" && errors.email) { %>
-                            <span class="text-danger" id="emailErrors"><%= errors.email.msg %> </span>
+                            <span class="text-danger"><%= errors.email.msg %> </span>
                             <% } %>
                         </div>
 
-                        <div class="input-container column">
-                            <input class="input-style" id="pass1" type="password" name="pass1" placeholder="Ingrese su Contraseña">
+                        <div class="input-container">
+                            <input class="input-style" type="password" name="pass1" placeholder="Ingrese su Contraseña">
                             <% if (typeof errors != "undefined" && errors.pass1) { %>
-                            <span class="text-danger " id="pass1Errors"><%= errors.pass1.msg %> </span>
+                            <span class="text-danger"><%= errors.pass1.msg %> </span>
                             <% } %>
                         </div>
 
-                        <div class="input-container column">
-                            <input class="input-style" id="pass2"type="password" name="pass2"
+                        <div class="input-container">
+                            <input class="input-style" type="password" name="pass2"
                                 placeholder="Reingrese su Contraseña">
                             <% if (typeof errors != "undefined" && errors.pass2) { %>
-                            <span class="text-danger" id="pass2Errors"><%= errors.pass2.msg %> </span>
+                            <span class="text-danger"><%= errors.pass2.msg %> </span>
                             <% } %>
                         </div>
-                        <div class="form-check column">
-                            <input name="terms" class="form-check-input" id="terms" type="checkbox" value="" id="flexCheckDefault">
+                        <div class="form-check">
+                            <input name="terms" class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                             <label class="form-check-label" for="flexCheckDefault">
                                 Acepto los <a href="">términos y condiciones</a>
                             </label>
                           </div>
                           <% if (locals.errors && errors.terms) { %>
-                            <small class="text-danger" id="termsErrors"><%= errors.terms.msg %></small>
+                            <small class="text-danger"><%= errors.terms.msg %></small>
                         <% } %>
 
                         <span class="error-message">Hubo errores en el envío</span>
@@ -85,7 +85,7 @@
             </div>
         </div>
     </main>
-    <script src="/js/registerFront.js"></script>
-    </body>
+<script>'/js/registerValidator.js'</script>
+</body>
 
 </html>

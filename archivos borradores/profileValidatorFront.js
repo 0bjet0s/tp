@@ -52,7 +52,7 @@ window.addEventListener('load', function() {
     $lastname.addEventListener('blur', function(){
         switch (true) {
             case !$lastname.value.trim():
-                $lastnameErrors.innerHTML = 'Ingrese su apellido'
+                $lastnameErrors.innerHTML = 'El apellido es obligatorio'
                 $lastname.style.color = 'red'
                 $lastname.style.fontSize = '10px';
                 $check[1].style.display = 'none'
@@ -136,7 +136,14 @@ window.addEventListener('load', function() {
                 error = true
             }
         }
-     if(!error && !validationErrors) {
+
+        if(!$terms.checked) {
+            $terms.style.border = '3px solid red'
+            $termsErrors.innerHTML = 'Debes aceptar los terminos y condiciones'
+            error = true
+        }
+
+        if(!error && !validationErrors) {
             $form.submit()
         }
     })

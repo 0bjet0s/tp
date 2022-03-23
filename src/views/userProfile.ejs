@@ -28,7 +28,7 @@
                                     <input class="input-style" type="name" name="name" id="name"placeholder="Ingrese su Nombre"
                                         value="<%= user.name %>">
                                     <% if (typeof errors !="undefined" && errors.name) { %>
-                                        <span class="text-danger" id="nameErrors">
+                                        <span class="text-danger profile" id="nameErrors">
                                             <%= errors.name.msg %>
                                         </span>
                                         <% } %>
@@ -38,7 +38,7 @@
                                     <input class="input-style" type="surname" name="lastname" id="lastname"
                                         placeholder="Ingrese su Apellido" value="<%= user.lastname %>">
                                     <% if (typeof errors !="undefined" && errors.lastname) { %>
-                                        <span class="text-danger" id="lastnameErrors">
+                                        <span class="text-danger profile" id="lastnameErrors">
                                             <%= errors.lastname.msg %>
                                         </span>
                                         <% } %>
@@ -54,7 +54,7 @@
                                     <input class="input-style" type="text" name="phone" id="phone" placeholder="Teléfono"
                                         value="<%= user.phone %>">
                                     <% if (typeof errors !="undefined" && errors.phone) { %>
-                                        <span class="text-danger" id="phoneErrors">
+                                        <span class="text-danger profile" id="phoneErrors">
                                             <%= errors.phone.msg %>
                                         </span>
                                         <% } %>
@@ -62,7 +62,7 @@
                                 <div class="mb-3 column">
                                     <input class="input-style" type="date" name="date" id="date" value="<%= user.date %>">
                                     <% if (typeof errors !="undefined" && errors.date) { %>
-                                        <span class="text-danger" id="dateErrors">
+                                        <span class="text-danger profile" id="dateErrors">
                                             <%= errors.date.msg %>
                                         </span>
                                         <% } %>
@@ -70,7 +70,7 @@
 
                                 <button type="submit" class="btn btn-submit" id="submit" style="margin-right: 10px;">Guardar
                                     cambios</button>
-                                    <small class="text-danger" id="submitErrors"></small>
+                                    <span class="text-danger profile" id="submitErrors"></small>
                                        
 
                         </div>
@@ -93,8 +93,7 @@
                         }
                     })
                 </script>
-               <script src="/js/profileValidatorFront.js"></script>
+<script src="/js/profileValidatorFront.js"></script>
 
-        </body>
-
+</body>
 </html>

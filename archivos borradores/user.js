@@ -2,8 +2,8 @@ let router = require('express').Router()
 let controller = require('../controllers/userController')
 let uploadFile = require ('../middlewares/uploadAvatar')
 let registerValidator = require('../validations/registerValidator')
+let profileValidator = require('../validations/profileValidator')
 let loginValidator = require ('../validations/loginValidator')
-let profileValidator = require ('../validations/profileValidator')
 let usercheckLogin = require('../middlewares/usercheckLogin');
 const onlyLoguedUsers = require('../middlewares/onlyLoguedUsers');
 
