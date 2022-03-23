@@ -1,4 +1,5 @@
 const db = require('../database/models');
+const { getBanners } = require('../database');
 
 module.exports = {
     inicio: (req, res) => {
@@ -11,12 +12,12 @@ module.exports = {
             having: "",
         })
         Promise.all([movies, genres, years])
-
             .then(([movies, genres, years]) => {
                 return res.render('home', {
                     titulo: "Inicio",
                     peliculas: movies,
                     generos: genres,
+                    banners: getBanners,
                     anios: years.map(element => element.year),
                     session: req.session.user
                 })
@@ -44,6 +45,7 @@ module.exports = {
                 titulo: "Trimovie - Inicio",
                 peliculas: genre.movies,
                 generos: genres,
+                banners: getBanners,
                 anios: dataYears.map(element => element.year),
                 session: req.session.user,
             })

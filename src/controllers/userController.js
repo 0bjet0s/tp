@@ -123,10 +123,7 @@ module.exports = {
     },
 
     update : (req,res) => {
-
-    let errors = validationResult(req);
-    if(errors.isEmpty()) {
-       
+        
         let {name, lastname, date, phone} = req.body;
         
         let {id} = req.params;
@@ -153,24 +150,10 @@ module.exports = {
                req.session.user.avatar = req.file.filename
            }
         }
-   
-            return res.redirect('/user/profile')
-            
-        }).catch(error => console.log(error))
-    }else{
-        db.User.findByPk(req.session.user.id, {
-            include : [{all:true}]
-        }).then(user => {
-            return res.render('userProfile', {
-                titulo: "TRIMOVI",
-                session: req.session.user,
-                user,
-                errors:errors.mapped(),
-                old:req.body
-            })
-        })
 
-    }
+            
+            return res.redirect('/user/profile')
+        }).catch(error => console.log(error))
     },
 
     "carrito": (req, res) => {
@@ -179,6 +162,13 @@ module.exports = {
             session: req.session.user
         });
     },
+    
+    "paymentPageRender": (req, res) => {
+        res.render('Pago', {
+            session: req.session.user,
+        })
+    },
+
 
     /* apis */
     changeImage : (req,res) => {
