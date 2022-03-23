@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Edgar-Rios/grupo_3_c12#readme",
   "dependencies": {
+    "@sequelize/core": "^7.0.0-alpha.10",
     "bcryptjs": "^2.4.3",
     "cookie-parser": "^1.4.6",
     "dotenv": "^16.0.0",
