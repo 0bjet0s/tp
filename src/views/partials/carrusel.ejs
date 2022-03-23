@@ -11,7 +11,7 @@
         <% banners.forEach((banner, index) => { %>
         <div class="carousel-item <%= index==0? 'active':'' %> " style="height: 300px; overflow: hidden;">
             <a href="#">
-                <img src="/design/images/carrousel/<%= banner.image %>" style="object-fit: cover;" class="d-block w-100"
+                <img src="/design/images/carrousel/<%= banner.image %>" style="image-rendering: pixelated;" class="d-block w-100"
                 alt="<%= banner.image %>">
             </a>
         </div>
