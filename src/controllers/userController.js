@@ -164,7 +164,7 @@ module.exports = {
     },
     
     "paymentPageRender": (req, res) => {
-        res.render('Pago', {
+        res.render('payment', {
             session: req.session.user,
         })
     },
