@@ -1,6 +1,8 @@
 const db = require('../database/models');
 const { getBanners } = require('../database');
 
+const { Op } = require('@sequelize/core');
+
 module.exports = {
     inicio: (req, res) => {
 
@@ -80,4 +82,40 @@ module.exports = {
             console.log(error)
         }
     },
+
+    search: async (req, res) => {
+        
+        try {
+
+            let searchValue = req.query.search;
+
+            let movies = await db.Movie.findAll({
+                where: {
+                    title: {
+                        [Op.substring]: `%${searchValue}%`
+                    }
+                }
+            })
+            let genres = await db.Genre.findAll()
+            let years = await db.Movie.findAll({
+                attributes: ['year'],
+                group: ["year"],
+                having: "",
+            })
+
+            return res.render('home', {
+                titulo: "Inicio",
+                peliculas: movies,
+                generos: genres,
+                banners: getBanners,
+                anios: years.map(element => element.year),
+                session: req.session.user
+            })
+
+        } catch (error) {
+            console.error(error);
+        }
+
+    },
+
 }
