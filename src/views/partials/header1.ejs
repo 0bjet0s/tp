@@ -4,8 +4,8 @@
 
     <!-- buscador -->
     <div class="d-flex">
-        <form action="">
-            <input type="text" class="input-search" placeholder="Buscar...">
+        <form action="/peliculas/search" method="GET">
+            <input type="text" class="input-search" placeholder="Buscar..." name="search">
             <button type="submit" class="btn-search"><i class="fas fa-search"></i></button>
         </form>
 
@@ -41,3 +41,22 @@
                 <% } %>
 
 </header>
+
+<script defer>
+    window.onload = e => {
+        // alert('evento capturado')
+        const $formSearch = document.querySelector('header form');
+
+        $formSearch.addEventListener('submit', e => {
+            e.preventDefault();
+            
+            const content = e.target.querySelector('input').value;
+            // console.log(content)
+            if(content.trim() != "") {
+                e.target.submit();
+            }
+            
+        })
+            
+    }
+</script>

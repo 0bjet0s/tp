@@ -20,28 +20,33 @@
                     <!-- peliculas -->
                     <section class="container-articles flex" id="pelis">
 
-                        <% peliculas.forEach(pelicula=> { %>
-                            <article class="article flex animate__animated animate__fadeIn">
-                                <div class="img-container flex">
-                                    <button class="btn-play" id="<%= pelicula.id %> ">
-                                        <img src="/design/images/icons/play-circle-regular.png" alt=""
-                                            onclick="viewTrailer('<%=pelicula.trailer%>')">
-                                    </button>
-                                    <img src="/design/images/products/<%= pelicula.image %>" alt="articulo">
-                                </div>
-                                <div class="data-article flex">
-                                    <a href="/peliculas/detalle/<%= pelicula.id %>">
-                                        <div class="titulo">
-                                            <h4 class="noun"><%= pelicula.title %></h4>
-                                        </div>
-                                        <div class="footer-article">
-                                            <i class="fas fa-heart"></i>
-                                            <span class="precio">$ <%= pelicula.price %> </span>
-                                        </div>
-                                    </a>
-                                </div>
-                            </article>
+                        <% if (peliculas.length>0) { %>
+                            <% peliculas.forEach(pelicula=> { %>
+                                <article class="article flex animate__animated animate__fadeIn">
+                                    <div class="img-container flex">
+                                        <button class="btn-play" id="<%= pelicula.id %> ">
+                                            <img src="/design/images/icons/play-circle-regular.png" alt=""
+                                                onclick="viewTrailer('<%=pelicula.trailer%>')">
+                                        </button>
+                                        <img src="/design/images/products/<%= pelicula.image %>" alt="articulo">
+                                    </div>
+                                    <div class="data-article flex">
+                                        <a href="/peliculas/detalle/<%= pelicula.id %>">
+                                            <div class="titulo">
+                                                <h4 class="noun"><%= pelicula.title %></h4>
+                                            </div>
+                                            <div class="footer-article">
+                                                <i class="fas fa-heart"></i>
+                                                <span class="precio">$ <%= pelicula.price %> </span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </article>
                             <% }) %>
+                        <% } else { %>
+                            <h2><b>NO HAY RESULTADOS</b></h2>
+                        <% }  %>
+                        
 
                     </section>
 
