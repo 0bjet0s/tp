@@ -18,20 +18,21 @@ window.addEventListener('load', function() {
 
     $email.addEventListener('blur', function(){
         switch (true) {
-            case !$email.value://.trim()
-                $emailErrors.innerHTML = 'El email es obligatorio'
+            case !$email.value.trim():
+                $emailErrors.innerHTML = 'Ingrese un email'
+                $emailErrors.style.color = 'red'
                 $email.style.color = 'red'
                 validationErrors = true
                 break;
             case !regExEmail.test($email.value):
-                $emailErrors.innerHTML = 'No es un email válido'
+                $emailErrors.innerHTML = 'Ingrese un email válido'
                 $email.style.color = 'red'
                 validationErrors = true
                 break;
             default:
                 $emailErrors.innerHTML = ''
-                //$email.style.color = '#2940D3'
-               // $email.style.backgroundColor = '#d8c371'
+                $email.style.color = '#2940D3'
+               $email.style.backgroundColor = '#d8c371'
                 $email.style.border = 'none'
                 validationErrors = false
                 break;
@@ -41,7 +42,8 @@ window.addEventListener('load', function() {
     $pass.addEventListener('blur', function(){
         switch (true) {
             case !$pass.value.trim():
-                $passErrors.innerHTML = 'La contraseña es obligatoria'
+                $passErrors.innerHTML = 'Ingrese su contraseña'
+                $passErrors.style.color = 'red'
                 $pass.style.color = 'red'
                 validationErrors = true
                 break;
