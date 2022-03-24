@@ -27,7 +27,7 @@ module.exports = [
                     return Promise.reject();
             })
             .catch(error => {
-                return Promise.reject("Credenciales inválidas")
+                return Promise.reject("Credenciales invalidad")
             })
             
         })
