@@ -1,42 +1,29 @@
 [
     {
         "id": 1,
-        "image": "1.jpg",
+        "image": "banner1.jpg",
         "to": "#"
     },
     {
         "id": 2,
-        "image": "2.jpg",
+        "image": "banner2.png",
         "to": "#"
     },
     {
         "id": 3,
-        "image": "3.jpg",
+        "image": "banner3.png",
         "to": "#"
     },
     {
         "id": 5,
-        "image": "5.png",
+        "image": "banner5.png",
         "to": "#"
     },
-    {
-        "id": 6,
-        "image": "6.png",
-        "to": "#"
-    },
-    {
-        "id": 7,
-        "image": "7.png",
-        "to": "#"
-    },
+    
+    
     {
         "id": 8,
         "image": "8.png",
-        "to": "#"
-    },
-    {
-        "id": 9,
-        "image": "9.png",
         "to": "#"
     }
 ]

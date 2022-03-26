@@ -7,6 +7,10 @@
     align-items: end;
 }
 
+.imgc{
+    object-fit: contain;
+}
+
 .contenedor-titulo-controles h3 {
     color: #fff;
     font-size: 30px;
