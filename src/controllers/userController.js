@@ -184,33 +184,7 @@ module.exports = {
             session: req.session.user,
         })
     },
-    "contacto": (req, res) => {
-        res.render('contacto', {
-            title: "Tri Movi -Contacto",
-            session: req.session.user,
-        })
-    },
-
-    "contactoMensaje": (req, res) => {
-        let {name, lastname, email, phone, message} = req.body;
-            
-        res.render('contacto',{
-            title: "Contacto",
-            name,
-            lastname,
-            email,
-            phone,
-            message,
-            session: req.session.user,
-
-        })
-    },
-    "gracias": (req, res) => {
-        res.render('gracias', {
-            title: "Enviado",
-            session: req.session.user,
-        })
-    },
+    
 
 
     /* apis */

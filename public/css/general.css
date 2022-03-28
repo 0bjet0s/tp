@@ -57,3 +57,19 @@ main {
     font-size: 24px;
     margin-left: 10px;
 }
+main.privacidad{
+    background-color: white;
+    text-align:justify;
+    padding-top: 20px;
+}
+
+.privacidad h2{
+    font-size: 24px;
+    text-align: center;
+    font-weight:bold;
+    padding:5px;
+}
+
+li.privacy{
+    list-style:none;
+}

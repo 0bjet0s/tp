@@ -13,8 +13,6 @@ router.get('/register', usercheckLogin, controller.registerPage)
 router.get('/carrousel', controller.registerPage)
 router.get('/carrito', onlyLoguedUsers, controller.carrito)
 router.get('/profile', controller.profile);
-router.get('/contacto', controller.contacto);
-router.post('/contacto', controller.contactoMensaje);
 router.put('/update/:id',uploadFile.single('avatarimage'), profileValidator, controller.update)
 
 router.post('/register', uploadFile.single('avatarimage'),registerValidator, controller.processRegister)
