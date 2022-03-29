@@ -26,7 +26,7 @@ window.addEventListener('load', function() {
         switch (true) {
             case !$name.value.trim():
                 $nameErrors.innerHTML = 'El nombre es obligatorio'
-                $name.style.color = 'red'
+                $nameErrors.style.color = 'red'
                 $name.style.fontSize = '10px';
                 $check[0].style.display = 'none'
                 validationErrors = true
