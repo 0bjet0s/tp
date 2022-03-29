@@ -61,12 +61,12 @@ window.onload = () => {
     console.log(e.target.value);
     switch (true) {
       case !$inputDirection.value.trim():
-        $errorDirection.innerHTML = "El campo precio es obligatorio";
+        $errorDirection.innerHTML = "El campo dirección es obligatorio";
         $inputDirection.classList.add("is-invalid");
         validationsErrors = true;
         break;
       case !regExAlpha.test($inputSinopsis.value):
-        $inputDirection.innerHTML = "Ingrese un precio válido";
+        $inputDirection.innerHTML = "Ingrese una sinopsis válido";
         $inputDirection.classList.add("is-invalid");
         validationsErrors = true;
         break;
@@ -106,12 +106,12 @@ window.onload = () => {
     console.log(e.target.value);
     switch (true) {
       case !$inputDuration.value.trim():
-        $errorDuration.innerHTML = "El campo precio es obligatorio";
+        $errorDuration.innerHTML = "El campo duration es obligatorio";
         $inputDuration.classList.add("is-invalid");
         validationsErrors = true;
         break;
       case !regExAlpha.test($inputSinopsis.value):
-        $inputDuration.innerHTML = "Ingrese un precio válido";
+        $inputDuration.innerHTML = "Ingrese una duración válida";
         $inputDuration.classList.add("is-invalid");
         validationsErrors = true;
         break;
@@ -128,7 +128,7 @@ window.onload = () => {
     console.log(e.target.value);
     switch (true) {
       case !$inputYear.value.trim():
-        $errorYear.innerHTML = "El campo año es obligatorio";
+        $errorYear.innerHTML = "El campo year es obligatorio";
         $inputYear.classList.add("is-invalid");
         validationsErrors = true;
         break;
@@ -195,11 +195,11 @@ window.onload = () => {
     switch (true) {
       case !$inputSinopsis.value.trim():
         $sinopsisErrors.innerHTML = "El campo sinopsis es obligatorio";
-        $inputTitle.classList.add("is-invalid");
+        $inputSinopsis.classList.add("is-invalid");
         validationsErrors = true;
         break;
       case !regExAlpha.test($inputSinopsis.value):
-        $inputSinopsis.innerHTML = "Ingrese una sinopsis válido";
+        $inputSinopsis.innerHTML = "Ingrese una sinopsis válida";
         $inputSinopsis.classList.add("is-invalid");
         validationsErrors = true;
         break;
