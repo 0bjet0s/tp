@@ -3,6 +3,9 @@
 /* ---- ----- ----- Contenedor Titulo y Controles ----- ----- ----- */
 .grupo3{
     background-color: black;
+    position: relative;
+ 
+    margin-bottom: 0%;
 
 }
 .contenedor-titulo-controles h3{
@@ -44,9 +47,20 @@
     background-color:black
 }
 
+h3{
+    font-family: 'Courier New', Courier, monospace;
+}
 
+.ul-text{
+    
+    font-size: 20px;
+    color: #fff;
+}
 
-
+.imgabout{
+    object-fit: contain;
+    object-fit: cover;
+}
 
 /* ---- ----- ----- Carousel ----- ----- ----- */
 .peliculas-recomendadas .contenedor-carousel {
