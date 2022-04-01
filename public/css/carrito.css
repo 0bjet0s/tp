@@ -422,21 +422,32 @@ footer div.redes-flex ul li {
    .container-flex{
      width: 0px;
    }
+   .tipo{
+     display: none;
+   }
+   .tipo1{
+     display: none;
+   }
  }
 
  
  @media (max-width: 1125px){
 
-  .containertarjeta{
-   display: none;
-  }
 
- @media (max-width: 480px){
+h6{
+  display: none;
+
+}
+
+
+
+ @media (max-width: 472px){
    .shopping-cart{
       padding: 1rem;
       flex-direction: column; 
     
    }
+
    }
    .shopping-cart-header{
     top: 6rem;
@@ -445,8 +456,29 @@ footer div.redes-flex ul li {
      
      }
 
+     @media (max-width: 472px){
+       .item-total{
+         position: relative;
+         left: 7rem;
+       }
+       .valor{
+        position: relative;
+        left: 6px;
+       }
+       .cuppon{
+        position: relative;
+        left: 8px;
+       }
 
-
+       .container-verde{
+         position: relative;
+         bottom: 3rem;
+         justify-content: center;
+         left: 35%;
+         
+       }
+      
+    }
 
 .tipo{
  position: relative;
@@ -469,5 +501,8 @@ footer div.redes-flex ul li {
  @media (max-width: 1120px){
    .containertarjeta{
    font-size: 15px;
+
    }
  }
+
+

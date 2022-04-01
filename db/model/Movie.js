@@ -1,4 +1,4 @@
-module.exports = (sequelize, dataTypes) => {//se empieza con module.exports para exportar el modelo
+ module.exports = (sequelize, dataTypes) => {//se empieza con module.exports para exportar el modelo
     let alias = 'Movie'; 
     let cols = {//se crean las columnas
         id: {
@@ -63,7 +63,7 @@ module.exports = (sequelize, dataTypes) => {//se empieza con module.exports para
         }) 
 
         Movie.belongsToMany(models.Genre, {
-            as: "genres", /* le pertenece a uno o más generos */
+            as: "genres", /* le pertenece a uno o más generos 
             through: "movie_has_genre",
             foreignKey: "movie_id",
             otherKey: "genre_id", 
@@ -71,13 +71,13 @@ module.exports = (sequelize, dataTypes) => {//se empieza con module.exports para
 
         Movie.belongsToMany(models.Actor, { 
             as: "actors",
-            through: "actor_has_movie", /* tabla pivot */
+            through: "actor_has_movie", /* tabla pivot 
             foreignKey: "movie_id",
-            otherKey: "actor_id", /* es la otra llave */
+            otherKey: "actor_id", /* es la otra llave 
             timestamps: false /* si queremos que se guarde el timestamps tenemos que configurar el createdAt y el updatedAt */
-        })
+       })
 
     }
 
     return Movie;
-};
+}; 

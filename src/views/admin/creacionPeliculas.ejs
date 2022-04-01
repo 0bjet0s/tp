@@ -52,7 +52,7 @@
                         <div class="col-12 col-md-6  mb-3">
 
                             <label for="">TRAILER</label>
-                            <input id="input-triler" class="form-control" type="url" name="triler" placeholder="Link de triler" value="<%= locals.old && old.triler %>">
+                            <input id="input-triler" class="form-control" type="text" name="triler" placeholder="Link de triler" value="<%= locals.old && old.triler %>">
                             <% if (locals.errors && errors.triler) { %>
                                 <small class="text-danger"><%= errors.triler.msg %> </small>
                             <% } %>
@@ -81,7 +81,7 @@
                                <!-- <div class="col-12 mb-3">--> 
                                 <div class="img-container" id="img-preview">
                                     <label for="">IMAGE</label>
-                                    <input  type="file" name="imageCreate" class="form-control" aria-label="file example" id="formFile" multiple>
+                                    <input  type="file" name="image" class="form-control" aria-label="file example" id="formFile" multiple>
                     <% if (locals.errors && errors.image) { %>
                         <small class="text-danger"><%= errors.image.msg %> </small>
                     <% } %>
@@ -135,7 +135,7 @@
                 </div>
 
             </form>
-            <script src="/js/CreateForm.js"></script>
+           <!--<script src="/js/CreateForm.js"></script>-->
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
         </body>
         </div>

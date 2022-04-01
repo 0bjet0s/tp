@@ -25,23 +25,24 @@ let peliculasController = {
     },
     agregar: function (req, res) {
         let errors = validationResult(req);
+ console.log(errors)
 
         if (errors.isEmpty()) {
-            const { title, directorId, length, year, trailer, price, sinopsis, genres } = req.body;
+            const { title, direction, length, year, trailer, price, sinopsis, genres } = req.body;
 
-
+ console.log('mensaje')
 
             db.Movie.create({
                 title: title.trim(),
-                directorId: +directorId,
+                directorId: +direction,
                 length: +length,
                 year: +year,
                 price: +price,
-                trailer: trailer.trim(),
+                trailer: trailer,
                 sinopsis: sinopsis.trim(),
                 image: req.file ? req.file.filename : 'notImage.png',
             }).then(movie => {
-
+ console.log(movie)
                 if (typeof genres === "string") {
                     genres = genres.split()
                 }

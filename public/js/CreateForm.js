@@ -227,9 +227,9 @@ window.onload = () => {
         elementsForm[index].classList.add("is-invalid");
         submitErrors.innerHTML = "Los campos señalados son obligatorios";
         error = true;
-        if (!error && !validationsErrors) {
+       if (!error && !validationsErrors) {
           $form.submit();
-        }
+       } 
       }
     }
   });

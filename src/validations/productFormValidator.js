@@ -37,9 +37,9 @@ module.exports = [
     .isNumeric()
     .withMessage('Sólo números'),
 
-    check('image')
-    .notEmpty()
-    .withMessage('Debes ingresar una imagen').bail(),
+    //check('image')
+   // .notEmpty()
+   // .withMessage('Debes ingresar una imagen').bail(),
    
 
     check('sinopsis')
@@ -49,7 +49,7 @@ module.exports = [
     .withMessage('El campo tiene que tener hasta 5000 caracteres'),
     
 
-    check('checkGenres')
-    .isString('on')
-    .withMessage('Debes agregar un genero')
+    /*check('checkGenres')
+    .notEmpty()
+    .withMessage('Debes agregar un genero')*/
 ]

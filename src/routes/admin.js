@@ -26,7 +26,7 @@ router.put('/products/edit/:id', upload.single('image'), controller.actualizar)
 // get - formulario de nuevo producto
 
 router.get('/products/new', userAdminCheck, controller.crear)
-router.post('/products/new',upload.single('image'), productFormValidator, controller.agregar)
+router.post('/products/new',upload.single('imageCreate'), productFormValidator, controller.agregar)
 
 // get - formulario de listar y detalle
 router.get('/products/listar', userAdminCheck, controller.listar)
